@@ -14,13 +14,13 @@
 local doom = {
   ui = {
     "dashboard",          -- Start screen
-    -- "doom-themes",     -- Additional doom emacs' colorschemes
+    "doom-themes",     -- Additional doom emacs' colorschemes
     "statusline",         -- Statusline
     "tabline",            -- Tabline, shows your buffers list at top
     -- "zen",             -- Distraction free environment
     "which-key",          -- Keybindings popup menu like Emacs' guide-key
-    -- "indentlines",     -- Show indent lines
-    -- "show_registers",  -- popup that shows register contents
+    "indentlines",     -- Show indent lines
+    "show_registers",  -- popup that shows register contents
   },
   doom = {
     -- "neorg",           -- Life Organization Tool
@@ -49,36 +49,36 @@ local doom = {
     -- at the end, e.g. 'rust +lsp'. This will install the rust TreeSitter
     -- parser and rust-analyzer
     --
-    -- "html",            -- HTML support
-    -- "css",             -- CSS support
+    "html",            -- HTML support
+    "css",             -- CSS support
     -- "javascript",      -- JavaScript support
     -- "typescript",      -- TypeScript support
-    -- "bash",            -- The terminal gods language
-    -- "python +lsp",     -- Python support + lsp
-    -- "ruby",            -- Look ma, I love the gems!
+    "bash",            -- The terminal gods language
+    "python +lsp",     -- Python support + lsp
+    "ruby",            -- Look ma, I love the gems!
     "lua",                -- Support for our gods language
     -- "elixir",          -- Build scalable and maintainable software
     -- "haskell",         -- Because Functional programming is fun, isn't it?
 
     -- "rust +lsp",       -- Let's get rusty!
     -- "go",              -- Hello, gopher
-    -- "cpp",             -- C++ support
+    "cpp",             -- C++ support
     -- "java",            -- Java support
 
-    -- "config",          -- Configuration files (JSON, YAML, TOML)
+    "config",          -- Configuration files (JSON, YAML, TOML)
     -- "dockerfile",      -- Do you like containers, right?
   },
   utilities = {
     -- "suda",            -- Write and read files without sudo permissions
     -- "lazygit",         -- LazyGit integration for Neovim, requires LazyGit
     -- "neogit",          -- Magit for Neovim
-    -- "colorizer",       -- Fastest colorizer for Neovim
+    "colorizer",       -- Fastest colorizer for Neovim
     "range-highlight",    -- hightlights ranges you have entered in commandline
   },
   web = {
     -- "restclient",      -- A fast Neovim http client
     -- "firenvim",        -- requires firenvim web extension; change fontsize by increasing guifontsize in doom_config
-    -- "colorizer",       -- Fastest colorizer for Neovim
+    "colorizer",       -- Fastest colorizer for Neovim
   }
 }
 

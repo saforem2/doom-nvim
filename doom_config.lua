@@ -257,7 +257,7 @@ local doom = {
 
   -- Default colorscheme
   -- @default = doom-one
-  colorscheme = "doom-one",
+  colorscheme = "molokai",
 
   -- Background color
   -- @default = dark
