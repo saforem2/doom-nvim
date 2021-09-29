@@ -51,7 +51,7 @@ local doom = {
   -- false : ignores undo Directories (this code block will be ignored)
   -- true  : enable undo files/undo dirs.
   -- @default = false
-  backup = false, -- WARNING: if you change this to false and you have an undo dir already, it will REMOVE the undodir (loss of data might take place)
+  backup = true, -- WARNING: if you change this to false and you have an undo dir already, it will REMOVE the undodir (loss of data might take place)
 
   -- Enable Line wrapping
   -- false : disables line wrapping
@@ -82,7 +82,7 @@ local doom = {
   -- false : Disable preservation of last editing position
   -- true  : Enable preservation of last editing position
   -- @default = false
-  preserve_edit_pos = false,
+  preserve_edit_pos = true,
 
   -- Allow overriding the default Doom Nvim keybinds
   -- false : Default keybinds cannot be overwritten
@@ -135,7 +135,7 @@ local doom = {
   -- false : spaces
   -- true  : tabs
   -- @default = true
-  expand_tabs = true,
+  expand_tabs = false,
 
   -- Set numbering
   -- false : Shows absolute number lines
@@ -185,6 +185,26 @@ local doom = {
   -- @default = true
   dashboard_statline = true,
 
+  -- Show the editing file path in your status line
+  -- false : show only file name on status line
+  -- true: show file name and the updir in status line
+  statusline_show_file_path = true,
+
+  -- Set the keybindings modules that you want to use
+  -- false : disables keybindings module
+  -- true  : enables keybindings module
+  keybinds_modules = {
+    -- Core doom keybindings
+    core = true,
+    -- Movement keybindings, jump between your windows, buffers and code
+    movement = true,
+    -- Leader keybindings, a bunch of useful keybindings managed by space key
+    -- WARNING: disabling this will break which-key plugin if the plugin is enabled
+    leader = true,
+    -- Completion and snippets keybindings
+    completion = true,
+  },
+
   -- Default indent size
   -- @default = 4
   indent = 4,
@@ -226,7 +246,7 @@ local doom = {
   -- 2 : Concealed text is completely hidden unless it has a custom replacement
   --     character defined
   -- 3 : Concealed text is completely hidden
-  conceallevel = 0,
+  conceallevel = 1,
 
   -- Logging level
   -- Set Doom logging level
@@ -247,7 +267,7 @@ local doom = {
   --   - window
   --   - float
   -- @default = 'horizontal'
-  terminal_direction = "horizontal",
+  terminal_direction = "float",
 
   -- NOTE: This will only be activated if 'backup' is true.
   -- We don'recommend you put this outside of neovim so we've restricted to the path: ~/.config/nvim
@@ -267,20 +287,20 @@ local doom = {
   doom_one = {
     -- If the cursor color should be blue
     -- @default = false
-    cursor_coloring = false,
+    cursor_coloring = true,
     -- If TreeSitter highlighting should be enabled
     -- @default = true
     enable_treesitter = true,
     -- If the comments should be italic
     -- @default = false
-    italic_comments = false,
+    italic_comments = true,
     -- If the telescope plugin window should be colored
     -- @default = true
     telescope_highlights = true,
     -- If the built-in Neovim terminal should use the doom-one
     -- colorscheme palette
     -- @default = false
-    terminal_colors = true,
+    terminal_colors = false,
     -- If the Neovim instance should be transparent
     -- @default = false
     transparent_background = false,
@@ -289,13 +309,14 @@ local doom = {
   -- Set gui fonts here
   -- @default = "FiraCode Nerd Font", @default font size = 15,
   -- WARNING: Font sizes must be in string format!
-  guifont = "FiraCode Nerd Font",
-  guifont_size = "15",
+  -- guifont = "FiraCode Nerd Font",
+  guifont = "agave Nerd Font",
+  guifont_size = "14",
 
   -- change Which Key background color
   -- can use hex, or normal color names (eg: Red, Gree, Blue)
   -- @default = #202328
-  whichkey_bg = "#202328",
+  whichkey_bg = "#202020",
 
   -- set your custom lsp diagnostic symbols below
   lsp_error = "",
@@ -307,9 +328,9 @@ local doom = {
   -- Set your dashboard custom colors below
   -- @default = doom emacs' default dashboard colors
   dashboard_custom_colors = {
-    header_color = "#586268",
-    center_color = "#51afef",
-    shortcut_color = "#a9a1e1",
+    header_color = "#1c1c1c",
+    center_color = "#00CCFF",
+    shortcut_color = "#B2FF59",
     footer_color = "#586268",
   },
 
@@ -325,7 +346,11 @@ local nvim = {
   -- @default = {}
   -- example:
   --   { ['sonokai_style'] = 'andromeda' }
-  global_variables = {},
+  global_variables = {
+        { ['minimap_width'] = 8 },
+        { ['minimap_auto_start'] = true },
+        { ['minimap_auto_start_win_enter'] = 1 },
+    },
 
   -- Set custom autocommands
   -- @default = {}
@@ -348,7 +373,11 @@ local nvim = {
   --     ':Lspsaga ...' is the command to be executed
   --     options is a Lua table containing the mapping options, e.g.
   --     { silent = true }, see ':h map-arguments'.
-  mappings = {},
+  mappings = {
+    { 'n', 'ca', ':Lspsaga codeaction<CR>', { silent = true }, },
+    { 'n', 'gr', ':Lspsaga rename<CR>', { silent = true }, },
+    { 'n', 's', [[:keeppatterns substitute/\s*\%#\s*/\r/e <bar> normal! ==<CR>]], { silent = true }, },
+  },
 
   -- Set custom commands
   -- @default = {}
@@ -356,7 +385,62 @@ local nvim = {
   --   {
   --      'echo "Hello, custom commands!"'
   --   }
-  commands = {},
+  commands = {
+        --[[ {
+            require'nvim-treesitter.configs.setup {
+                highlight = {
+                    enable = true,
+                    custom_captures = {
+                        -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
+                        ["foo.bar"] = "Identifier",
+                    },
+                    -- Setting this to true or a list of languages will run `:h syntax` and tree-sitter at the same time.
+                    additional_vim_regex_highlighting = true,
+                },
+                incremental_selection = {
+                    enable = true,
+                    keymaps = {
+                        init_selection = "gnn",
+                        node_incremental = "grn",
+                        scope_incremental = "grc",
+                        node_decremental = "grm",
+                    },
+                },
+                playground = {
+                    enable = true,
+                    disable = {},
+                    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+                    persist_queries = false, -- Whether the query persists across vim sessions
+                    keybindings = {
+                        toggle_query_editor = 'o',
+                        toggle_hl_groups = 'i',
+                        toggle_injected_languages = 't',
+                        toggle_anonymous_nodes = 'a',
+                        toggle_language_display = 'I',
+                        focus_language = 'f',
+                        unfocus_language = 'F',
+                        update = 'R',
+                        goto_node = '<cr>',
+                        show_help = '?',
+                    },
+                },
+                query_linter = {
+                    enable = true,
+                    use_virtual_text = true,
+                    lint_events = {"BufWrite", "CursorHold"},
+                },
+                rainbow = {
+                    enable = true,
+                    colors = {"#65FFDA", "#FFFF00",  "#B2FF59", "#FF4081", "#0CF",  "#E040FB", "#FD971F"}, -- table of hex strings
+                    --extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
+                    -- max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
+                    -- colors = {"#65FFDA", "#FFFF00",  "#B2FF59", "#FF4081", "#0CF",  "#E040FB", "#FD971F"}, -- table of hex strings
+                    -- termcolors = {}, -- table of colour name strings
+                },
+                ensure_installed = "maintained"
+            },
+        }, ]]
+    },
 
   -- Set custom functions
   -- @default = {}
@@ -374,9 +458,19 @@ local nvim = {
   --   {
   --      { ['shiftwidth'] = 4 }
   --   }
-  options = {},
+  options = {
+    ['shiftwidth'] = 4,
+    ['number'] = true,
+    ['foldmethod'] = 'marker',
+    ['ignorecase'] = true,
+    ['smartcase'] = true,
+    ['expandtab'] = true,
+    ['smartindent'] = true,
+    -- ['minimap_width'] = 8,
+    -- ['minimap_auto_start'] = 1,
+    -- ['minimap_auto_start_win_enter'] = 1,
+  },
 }
--- }}}
 
 return {
   doom = doom,

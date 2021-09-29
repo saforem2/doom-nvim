@@ -199,26 +199,25 @@ hi IndentGuidesOdd guifg=#494949
 hi IndentGuidesEven guifg=#3E3D32
 
 hi Debug           guifg=#BCA3A3               gui=bold
-hi Define          guifg=#FF0080               gui=bold
-hi pythonTripleQuotes guifg=#404040 gui=italic
+hi Define          guifg=#66D9EF
 hi Delimiter       guifg=#8F8F8F
 hi DiffAdd                       guibg=#13354A
-hi DiffChange      guifg=#FFFF00 " guibg=#
-hi DiffDelete      guifg=#FF2600
-" hi DiffText        guifg=# gui=italic,bold
+hi DiffChange      guifg=#89807D guibg=#4C4745
+hi DiffDelete      guifg=#s:red1 guibg=#1E0010
+hi DiffText                      guibg=#4C4745 gui=italic,bold
 hi Directory       guifg=#b2b2b2
-hi Error           guifg=#484848 guibg=#FF2600
+hi Error           guifg=#252525 guibg=#FF2600
 hi ErrorMsg        guifg=#F92672 guibg=#232526 gui=bold
 hi Exception       guifg=#fd971f               gui=bold
 hi Float           guifg=#AE81FF
 hi Folded	       guifg=#465457 guibg=#1e1e1e  gui=bold,italic
 hi FoldColumn      guifg=#465457 guibg=#1e1e1e  gui=bold,italic
 hi Function        guifg=#87ff00
-hi Identifier      guifg=#FF4081			  gui=bold
+hi Identifier      guifg=#fd971f			  gui=bold
 hi Ignore          guifg=#808080 guibg=bg
-hi IncSearch       guifg=#FF4081 guibg=#FF79B0 gui=bold
+hi IncSearch       guifg=#FF2600 guibg=#FFFFFF gui=bold
 
-hi Keyword         guifg=#65D8EE               gui=bold
+hi Keyword         guifg=#F92672               gui=bold
 hi Label           guifg=#ffff00               gui=none
 hi NonText         guifg=#75715E
 hi Macro           guifg=#87ff00               gui=bold
@@ -226,13 +225,13 @@ hi SpecialKey      guifg=#66D9EF               gui=bold
 hi MatchParen      guifg=#d3ff00 guibg=#465457 gui=bold,italic
 hi ModeMsg         guifg=#E6DB74
 hi MoreMsg         guifg=#E6DB74
-hi Operator        guifg=#FF79FF
+hi Operator        guifg=#F92672
 
 " complete menu
 
-hi Pmenu           guifg=#efefef guibg=#303030
+hi Pmenu           guifg=#bcbcbc guibg=#303030
 hi PmenuSel        guifg=#f92672 guibg=#292929 gui=bold
-hi PmenuSbar       guifg=#B2FF59 guibg=#303030
+hi PmenuSbar       guifg=#fd971f guibg=#303030
 hi PmenuThumb      guifg=#66D9EF guibg=#303030
 
 hi PreCondit       guifg=#fd971f               gui=bold
@@ -243,7 +242,7 @@ hi Search          guifg=#FFFFFF guibg=#FF2600 gui=bold
 hi SignColumn      guifg=#fd971f guibg=#232526
 hi SpecialChar     guifg=#F92672               gui=bold
 hi SpecialComment  guifg=#465457               gui=bold,italic
-hi Special         guifg=#519aba guibg=bg,italic      gui=bold
+hi Special         guifg=#66D9EF guibg=bg      gui=bold
 
 
 
@@ -264,21 +263,21 @@ hi Todo            guifg=#FF005b guibg=bg      gui=bold
 
 hi Typedef         guifg=#007dff
 hi Type            guifg=#66D9EF               gui=none
-hi Underlined      gui=underline
+hi Underlined      guifg=#808080               gui=underline
 
-hi VertSplit       guifg=#303030               gui=bold
-hi Visual          guifg=#007dff guibg=#303030 gui=bold
-hi VisualNOS       guifg=#007dff               gui=bold
-hi WarningMsg      guifg=#303030 guibg=#FFFF00 gui=bold
+hi VertSplit       guifg=#808080 guibg=#080808 gui=bold
+hi Visual          guifg=#007dff guibg=#181818 gui=bold
+hi VisualNOS       guifg=#007dff guibg=#403D3D gui=bold
+hi WarningMsg      guifg=#FFFFFF guibg=#333333 gui=bold
 hi WildMenu        guifg=#66D9EF guibg=#000000
 
 hi TabLineFill     guifg=#007dff guibg=#f0f0f0 gui=bold
 hi TabLine         guibg=#f92672 guifg=#f0f0f0 gui=bold
 
 hi Normal           guifg=#ffffff  guibg=#1c1c1c       gui=NONE
-hi Comment          guifg=#404040   guibg=italic
+hi Comment          guifg=#494949   guibg=italic
 hi CursorLine       guifg=NONE      guibg=#1e1e1e
-hi CursorLineNr     guifg=#00CCFF   guibg=NONE          gui=bold
+hi CursorLineNr     guifg=#55c7ff   guibg=NONE          gui=bold
 hi CursorColumn     guifg=NONE      guibg=#1e1e1e
 hi ColorColumn      guifg=NONE      guibg=#1e1e1e
 hi linenr		    guifg=#505050   guibg=NONE
@@ -427,6 +426,8 @@ if &t_Co > 255
     endif
 end
 
+" hi Error           guifg=#960050 guibg=#1E0010
+" hi Error           guifg=#E6DB74 guibg=#1E0010
 " hi Character       guifg=#E6DB74
 " hi String          guifg=#E6DB74
 " hi String          guifg=#ffff00 gui=italic
@@ -512,7 +513,7 @@ autocmd FileType python
     \ hi pythonWordOperator			guibg=NONE guifg=#d3ff00 gui=NONE |
     \ hi pythonOperator				guibg=NONE guifg=#F92672 gui=bold |
     \ hi pythonDocstring			guibg=NONE guifg=#606060 gui=NONE,italic |
-    \ hi pythonConstant				guibg=NONE guifg=#FF9944 gui=bold |
+    \ hi pythonConstant				guibg=NONE guifg=#fd971f gui=bold |
     \ hi pythonNone					guibg=NONE guifg=#d3ff00 gui=bold |
     \ hi pythonExtraOperator		guibg=NONE guifg=#87ff00 gui=bold |
     \ hi pythonExtraPseudoOperator	guibg=NONE guifg=#87ff00 gui=bold |
@@ -536,7 +537,7 @@ autocmd FileType python
 
 
 syn match pythonMethod /\v[[:alpha:]_.]+\ze(\s?\()/
-highlight pythonMethod guibg=NONE guifg=#87ff00 gui=NONE
+highlight pythonMethod guibg=NONE guifg=#eeee00 gui=NONE
 highlight semshiAttribute guibg=NONE guifg=#CC78FA gui=bold
 
 " \ hi pythonRainbowParentheses		guibg=NONE guifg=#FD971F gui=bold |
@@ -681,8 +682,9 @@ hi GitGutterChangeDelete		guibg=NONE guifg=#AE81FF
 " #F8F8F2
 
 
+
 hi ActiveWindow     guibg=#1c1c1c
-hi InactiveWindow   guibg=#303030
+hi InactiveWindow   guibg=#0D1B22
 
 
 " Must be at the end, because of ctermbg=234 bug.
@@ -711,33 +713,16 @@ hi pythonFunction       guifg=#87ff00 gui=bold
 """"""""""""
 " Clean up "
 """"""""""""
-hi Function guifg=#63ff51
-hi semshiGlobal guifg=#FF79FF
-hi pythonParam guifg=#FF579C
+hi Function guifg=#b2ff59
+hi semshiGlobal guifg=#63ff51
+hi pythonParam guifg=#ffa511
 hi Title guifg=#00cfff
-hi pythonComment guifg=#505050
-hi link GalaxyDiagnosticError LspDiagnosticsDefaultError
-hi link GalaxyDiagnsticInfo LspDiagnosticsDefaultInformation
-hi link GalaxyDiagnosticWarn LspDiagnosticsDefaultWarning
-hi GalaxyBufferIcon guifg=#FFFF00 guibg=#303030
-hi GalaxyGitIcon guifg=#F92672 guibg=#303030
-hi GalaxyFileName gui=bold guifg=#bbc2cf guibg=#303030
-hi GalaxyGitBranch gui=bold guifg=#63FF51 guibg=#303030
-" hi GitBranchSeparator cleared
-hi GalaxyLineInfo  guibg=#23272e
-
-hi TSField guifg=#FF03CE
-hi TSFloat guifg=#87FF00
-hi TSInclude guifg=#AE81FF
-hi TSConstant guifg=#FF7B72 gui=bold
- " #00CBCC
-hi Operator guifg=#FF4081
-" hi pythonTSVariable guifg=#00CCFF
-
-" LspDiagnosticsDefaultHint xxx guifg=#63FF51
-" LspDiagnosticsDefaultError xxx guifg=#F20052
+hi pythonComment guifg=#707070
 
 hi pythonImport guifg=#03a9f4
+hi DiffAdd guibg=NONE
+hi DiffChange guibg=NONE
+hi DiffDelete guibg=NONE
 
 " hi link Title            semshiGlobal
 " syntax match pythonMethod /\v[[:alpha:]_.]+\ze(\s?\()/

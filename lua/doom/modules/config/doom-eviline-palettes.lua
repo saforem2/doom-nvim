@@ -8,18 +8,18 @@ local M = {}
 M.get_color = function(name)
   return function()
     local colors = {
-      bg = "#23272e",
-      fg = "#bbc2cf",
-      section_bg = "#5B6268",
-      yellow = "#ECBE7B",
+      -- bg = "#23272e",
+      bg = "#202020",
+      fg = "#505050",
+      section_bg = "#242424",
+      yellow = "#FFFF00",
       cyan = "#46D9FF",
-      green = "#98be65",
-      orange = "#da8548",
-      magenta = "#c678dd",
-      blue = "#51afef",
-      red = "#ff6c6b",
+      green = "#63FF51",
+      orange = "#FFB86C",
+      magenta = "#FF79FF",
+      blue = "#00CCFF",
+      red = "#FF2052",
     }
-
     if vim.g.colors_name == "doom-one" and vim.opt.background:get() == "light" then
       colors = {
         bg = "#c6c7c7",

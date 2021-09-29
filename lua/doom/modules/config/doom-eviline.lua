@@ -39,7 +39,8 @@ return function()
   gls.left[1] = {
     RainbowLeft = {
       provider = function()
-        return "▊ "
+        -- return "▊ "
+        return "⣿ "
       end,
       highlight = { get_color("blue"), get_color("bg") },
     },
@@ -72,7 +73,8 @@ return function()
           t = get_color("red")(),
         }
         vim.api.nvim_command("hi GalaxyViMode guifg=" .. mode_color[vim.fn.mode()])
-        return "  "
+        -- return "  "
+        return " "
       end,
       highlight = { get_color("red"), get_color("bg"), "bold" },
     },
@@ -200,7 +202,8 @@ return function()
   gls.right[4] = {
     GitIcon = {
       provider = function()
-        return "  "
+        return " ﯙ  "
+        -- return "  "
       end,
       condition = condition.check_git_workspace,
       highlight = { get_color("red"), get_color("bg") },

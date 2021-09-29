@@ -44,11 +44,19 @@ return function()
 
   require("nvim-treesitter.configs").setup({
     ensure_installed = get_ts_parsers(doomrc.langs),
-    highlight = { enable = true },
     autopairs = {
       enable = functions.is_plugin_disabled("autopairs") and false or true,
     },
-    indent = { enable = true },
+    highlight = {
+        enable = true,
+        custom_captures = {
+            -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
+            ["foo.bar"] = "Identifier",
+        },
+        -- Setting this to true or a list of languages will run `:h syntax` and tree-sitter at the same time.
+        additional_vim_regex_highlighting = true,
+    },
+    indent = { enable = true, disable={'python', } },
     tree_docs = { enable = true },
     context_commentstring = { enable = true },
     autotag = {
@@ -63,6 +71,24 @@ return function()
         "vue",
         "markdown",
       },
+    },
+    incremental_selection = {
+        enable = true,
+        keymaps = {
+            init_selection = "gnn",
+            node_incremental = "grn",
+            scope_incremental = "grc",
+            node_decremental = "grm",
+      },
+    },
+    query_linter = {
+        enable = true,
+        use_virtual_text = true,
+        lint_events = {"BufWrite", "CursorHold"},
+    },
+    rainbow = {
+        enable = true,
+        colors = {"#65FFDA", "#FFFF00",  "#B2FF59", "#FF4081", "#0CF",  "#E040FB", "#FD971F"}, -- table of hex strings
     },
   })
 end

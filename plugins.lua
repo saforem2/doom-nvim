@@ -12,4 +12,47 @@
 --     },
 -- }
 
-return {}
+return {
+  {
+    'ActivityWatch/aw-watcher-vim',
+  },
+  {
+    'wakatime/vim-wakatime',
+  },
+  {
+    'ap/vim-css-color',
+  },
+  {
+    'lervag/vimtex',
+  },
+  {
+    'jakewvincent/texmagic.nvim',
+  },
+  {
+    'ellisonleao/glow.nvim',
+  },
+  {
+    'folke/lsp-colors.nvim',
+    config = function()
+      require("lsp-colors").setup({
+        Error = "#F20052",
+        Warning = "#FFFF00",
+        Information = "#00CCFF",
+        Hint = "#63FF51",
+      })
+    end,
+  },
+  {
+    'glepnir/lspsaga.nvim',
+    requires = { 'neovim/nvim-lspconfig' },
+  },
+  {
+    'wfxr/code-minimap',
+  },
+  {
+    'AndrewRadev/splitjoin.vim'
+  },
+  {
+    'sainnhe/sonokai'
+  },
+}

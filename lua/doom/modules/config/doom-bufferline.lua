@@ -1,9 +1,10 @@
 return function()
   require("bufferline").setup({
     options = {
-      numbers = function(opts)
+      --[[ numbers = function(opts)
         return string.format("%s", opts.id)
-      end,
+      end, ]]
+      numbers = "none",
       indicator_icon = "▎",
       buffer_close_icon = "",
       modified_icon = "●",
@@ -13,15 +14,16 @@ return function()
       max_name_length = 20,
       max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
       tab_size = 25,
+      mappings = true,
       diagnostics = "nvim_lsp",
-      diagnostics_indicator = function(_, _, diagnostics_dict, _)
+      --[[ diagnostics_indicator = function(_, _, diagnostics_dict, _)
         local s = " "
         for e, n in pairs(diagnostics_dict) do
           local sym = e == "error" and "  " or (e == "warning" and "  " or "  ")
           s = s .. n .. sym
         end
         return s
-      end,
+      end, ]]
       -- NOTE: this will be called a lot so don't do any heavy processing here
       custom_filter = function(buf_number)
         if vim.bo[buf_number].filetype ~= "dashboard" then
@@ -51,14 +53,14 @@ return function()
         },
       },
       show_buffer_icons = true,
-      show_buffer_close_icons = true,
+      show_buffer_close_icons = false,
       show_close_icon = false,
       show_tab_indicators = true,
       persist_buffer_sort = true,
-      separator_style = "thick",
-      enforce_regular_tabs = true,
+      separator_style = "thin",
+      enforce_regular_tabs = false,
       always_show_bufferline = false,
-      sort_by = "directory",
+      -- sort_by = "directory",
       custom_areas = {
         right = function()
           local result = {}
@@ -70,28 +72,28 @@ return function()
           if error ~= 0 then
             result[1] = {
               text = "  " .. error,
-              guifg = "#ff6c6b",
+              guifg = "#F92672",
             }
           end
 
           if warning ~= 0 then
             result[2] = {
               text = "  " .. warning,
-              guifg = "#ECBE7B",
+              guifg = "#FFFF00",
             }
           end
 
           if hint ~= 0 then
             result[3] = {
               text = "  " .. hint,
-              guifg = "#98be65",
+              guifg = "#87ff00",
             }
           end
 
           if info ~= 0 then
             result[4] = {
               text = "  " .. info,
-              guifg = "#51afef",
+              guifg = "#00CCFF",
             }
           end
           return result

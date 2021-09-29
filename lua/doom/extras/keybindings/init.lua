@@ -447,7 +447,7 @@ utils.map(
 --     Disable keys      --
 ---]]-----------------[[---
 -- Disable accidentally pressing ctrl-z and suspending
-utils.map("n", "<c-z>", "<Nop>", opts, "Editor", "disable_suspending", "Disable suspending")
+-- utils.map("n", "<c-z>", "<Nop>", opts, "Editor", "disable_suspending", "Disable suspending")
 
 -- Disable ex mode
 utils.map("n", "Q", "<Nop>", opts, "Editor", "disable_ex", "Disable ex mode")
