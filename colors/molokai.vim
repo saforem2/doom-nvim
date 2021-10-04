@@ -202,12 +202,12 @@ hi Debug           guifg=#BCA3A3               gui=bold
 hi Define          guifg=#FF0080               gui=bold
 hi pythonTripleQuotes guifg=#404040 gui=italic
 hi Delimiter       guifg=#8F8F8F
-hi DiffAdd                       guibg=#13354A
-hi DiffChange      guifg=#FFFF00 " guibg=#
-hi DiffDelete      guifg=#FF2600
+hi DiffAdd         guifg=#B2FF59 guibg=NONE
+hi DiffChange      guifg=#E040FB guibg=NONE
+hi DiffDelete      guifg=#FF2600 guibg=NONE
 " hi DiffText        guifg=# gui=italic,bold
 hi Directory       guifg=#b2b2b2
-hi Error           guifg=#484848 guibg=#FF2600
+hi Error           guifg=#FF2600 guibg=#F7C2CC
 hi ErrorMsg        guifg=#F92672 guibg=#232526 gui=bold
 hi Exception       guifg=#fd971f               gui=bold
 hi Float           guifg=#AE81FF
@@ -216,14 +216,14 @@ hi FoldColumn      guifg=#465457 guibg=#1e1e1e  gui=bold,italic
 hi Function        guifg=#87ff00
 hi Identifier      guifg=#FF4081			  gui=bold
 hi Ignore          guifg=#808080 guibg=bg
-hi IncSearch       guifg=#FF4081 guibg=#FF79B0 gui=bold
+hi IncSearch       guifg=#F92672 guibg=#FED7E5 gui=bold
 
 hi Keyword         guifg=#65D8EE               gui=bold
 hi Label           guifg=#ffff00               gui=none
 hi NonText         guifg=#75715E
 hi Macro           guifg=#87ff00               gui=bold
 hi SpecialKey      guifg=#66D9EF               gui=bold
-hi MatchParen      guifg=#d3ff00 guibg=#465457 gui=bold,italic
+hi MatchParen      guifg=#F92672 guibg=#202020 gui=bold
 hi ModeMsg         guifg=#E6DB74
 hi MoreMsg         guifg=#E6DB74
 hi Operator        guifg=#FF79FF
@@ -231,7 +231,7 @@ hi Operator        guifg=#FF79FF
 " complete menu
 
 hi Pmenu           guifg=#efefef guibg=#303030
-hi PmenuSel        guifg=#f92672 guibg=#292929 gui=bold
+hi PmenuSel        guifg=#00CCFF guibg=#404040 gui=bold
 hi PmenuSbar       guifg=#B2FF59 guibg=#303030
 hi PmenuThumb      guifg=#66D9EF guibg=#303030
 
@@ -277,156 +277,15 @@ hi TabLine         guibg=#f92672 guifg=#f0f0f0 gui=bold
 
 hi Normal           guifg=#ffffff  guibg=#1c1c1c       gui=NONE
 hi Comment          guifg=#404040   guibg=italic
-hi CursorLine       guifg=NONE      guibg=#1e1e1e
+hi CursorLine       guifg=NONE      guibg=#202020
 hi CursorLineNr     guifg=#00CCFF   guibg=NONE          gui=bold
-hi CursorColumn     guifg=NONE      guibg=#1e1e1e
-hi ColorColumn      guifg=NONE      guibg=#1e1e1e
-hi linenr		    guifg=#505050   guibg=NONE
+hi CursorColumn     guifg=NONE      guibg=#202020
+hi ColorColumn      guifg=NONE      guibg=#202020
+hi linenr		    guifg=#202020   guibg=NONE
 hi qfLineNr         guifg=#bcbcbc   guibg=NONE
 hi NonText          guifg=#465457   guibg=NONE
 hi SpecialKey       guifg=#465457   guibg=NONE
-
 "
-" Support for 256-color terminal
-"
-if &t_Co > 255
-    if s:molokai_original == 1
-        hi Normal                   ctermbg=234
-        hi CursorLine               ctermbg=235   cterm=none
-        hi CursorLineNr ctermfg=208               cterm=none
-    else
-        hi Normal       ctermfg=252 ctermbg=233
-        hi CursorLine               ctermbg=234   cterm=none
-        hi CursorLineNr ctermfg=208               cterm=none
-    endif
-    hi Boolean         ctermfg=135
-    hi Character       ctermfg=144
-    hi Number          ctermfg=135
-    hi String          ctermfg=144
-    hi Conditional     ctermfg=161               cterm=bold
-    hi Constant        ctermfg=135               cterm=bold
-    hi Cursor          ctermfg=16  ctermbg=253
-    hi Debug           ctermfg=225               cterm=bold
-    hi Define          ctermfg=81
-    hi Delimiter       ctermfg=241
-
-    hi DiffAdd                     ctermbg=24
-    hi DiffChange      ctermfg=181 ctermbg=239
-    hi DiffDelete      ctermfg=162 ctermbg=53
-    hi DiffText                    ctermbg=102 cterm=bold
-
-    hi Directory       ctermfg=118               cterm=bold
-    hi Error           ctermfg=219 ctermbg=89
-    hi ErrorMsg        ctermfg=199 ctermbg=16    cterm=bold
-    hi Exception       ctermfg=118               cterm=bold
-    hi Float           ctermfg=135
-    hi FoldColumn      ctermfg=67  ctermbg=16
-    hi Folded          ctermfg=67  ctermbg=16
-    hi Function        ctermfg=118
-    hi Identifier      ctermfg=208               cterm=none
-    hi Ignore          ctermfg=244 ctermbg=232
-    hi IncSearch       ctermfg=193 ctermbg=16
-
-    hi keyword         ctermfg=161               cterm=bold
-    hi Label           ctermfg=229               cterm=none
-    hi Macro           ctermfg=193
-    hi SpecialKey      ctermfg=81
-
-    hi MatchParen      ctermfg=233  ctermbg=208 cterm=bold
-    hi ModeMsg         ctermfg=229
-    hi MoreMsg         ctermfg=229
-    hi Operator        ctermfg=161
-
-    " complete menu
-    hi Pmenu           ctermfg=81  ctermbg=16
-    hi PmenuSel        ctermfg=255 ctermbg=242
-    hi PmenuSbar                   ctermbg=232
-    hi PmenuThumb      ctermfg=81
-
-    hi PreCondit       ctermfg=118               cterm=bold
-    hi PreProc         ctermfg=118
-    hi Question        ctermfg=81
-    hi Repeat          ctermfg=161               cterm=bold
-    hi Search          ctermfg=0   ctermbg=222   cterm=NONE
-
-    " marks column
-    hi SignColumn      ctermfg=118 ctermbg=235
-    hi SpecialChar     ctermfg=161               cterm=bold
-    hi SpecialComment  ctermfg=245               cterm=bold
-    hi Special         ctermfg=81
-    if has("spell")
-        hi SpellBad                ctermbg=52
-        hi SpellCap                ctermbg=17
-        hi SpellLocal              ctermbg=17
-        hi SpellRare  ctermfg=none ctermbg=none  cterm=reverse
-    endif
-    hi Statement       ctermfg=161               cterm=bold
-    hi StatusLine      ctermfg=238 ctermbg=253
-    hi StatusLineNC    ctermfg=244 ctermbg=232
-    hi StorageClass    ctermfg=208
-    hi Structure       ctermfg=81
-    hi Tag             ctermfg=161
-    hi Title           ctermfg=166
-    hi Todo            ctermfg=231 ctermbg=232   cterm=bold
-
-    hi Typedef         ctermfg=81
-    hi Type            ctermfg=81                cterm=none
-    hi Underlined      ctermfg=244               cterm=underline
-
-    " hi VertSplit       ctermfg=244 ctermbg=232   cterm=bold
-    hi VertSplit       guifg=#303030 guibg=#30303
-    hi VisualNOS                   ctermbg=238
-    hi Visual                      ctermbg=235
-    hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
-    hi WildMenu        ctermfg=81  ctermbg=16
-
-    hi Comment         ctermfg=59
-    hi CursorColumn                ctermbg=236
-    hi ColorColumn                 ctermbg=236
-    hi LineNr          ctermfg=250 ctermbg=236
-    hi NonText         ctermfg=59
-
-    hi SpecialKey      ctermfg=59
-
-    if exists("g:rehash256") && g:rehash256 == 1
-        hi Normal       ctermfg=252 ctermbg=234
-        hi CursorLine               ctermbg=236   cterm=none
-        hi CursorLineNr ctermfg=208               cterm=none
-
-        hi Boolean         ctermfg=141
-        hi Character       ctermfg=222
-        hi Number          ctermfg=141
-        hi String          ctermfg=222
-        hi Conditional     ctermfg=197               cterm=bold
-        hi Constant        ctermfg=141               cterm=bold
-
-        hi DiffDelete      ctermfg=125 ctermbg=233
-
-        hi Directory       ctermfg=154               cterm=bold
-        hi Error           ctermfg=222 ctermbg=233
-        hi Exception       ctermfg=154               cterm=bold
-        hi Float           ctermfg=141
-        hi Function        ctermfg=154
-        hi Identifier      ctermfg=208
-
-        hi Keyword         ctermfg=197               cterm=bold
-        hi Operator        ctermfg=197
-        hi PreCondit       ctermfg=154               cterm=bold
-        hi PreProc         ctermfg=154
-        hi Repeat          ctermfg=197               cterm=bold
-
-        hi Statement       ctermfg=197               cterm=bold
-        hi Tag             ctermfg=197
-        hi Title           ctermfg=203
-        hi Visual                      ctermbg=238
-
-        hi Comment         ctermfg=244
-        hi LineNr          ctermfg=239 ctermbg=235
-        hi NonText         ctermfg=239
-        hi SpecialKey      ctermfg=239
-    endif
-end
-
 " hi Character       guifg=#E6DB74
 " hi String          guifg=#E6DB74
 " hi String          guifg=#ffff00 gui=italic
@@ -460,6 +319,7 @@ end
 " hi CursorLine       guifg=NONE      guibg=#252525
 " hi linenr		    guifg=#353535   guibg=NONE
 " hi linenr		    guifg=#404040   guibg=NONE
+"
 " Highlights {{{1
 " hi link Boolean             Constant
 " hi link Character           Constant
@@ -538,6 +398,51 @@ autocmd FileType python
 syn match pythonMethod /\v[[:alpha:]_.]+\ze(\s?\()/
 highlight pythonMethod guibg=NONE guifg=#87ff00 gui=NONE
 highlight semshiAttribute guibg=NONE guifg=#CC78FA gui=bold
+hi clear SignColumn
+hi ALEWarningSign				guibg=NONE guifg=#87ff00 gui=NONE
+hi ALEErrorSign					guibg=NONE guifg=#F92672 gui=bold
+
+
+hi GitGutterAdd					guibg=NONE guifg=#87FF00
+hi GitGutterAddLine				guibg=NONE guifg=#87FF00
+hi GitGutterChange				guibg=NONE guifg=#FD971F
+hi GitGutterDelete				guibg=NONE guifg=#FF2600
+hi GitGutterChangeDelete		guibg=NONE guifg=#AE81FF
+
+hi ActiveWindow     guibg=#1c1c1c
+hi InactiveWindow   guibg=#303030
+
+exec "hi NERDTreeExecFile guifg=".s:green0
+exec "hi NERDTreeDirSlash guifg=".s:teal0
+exec "hi NERDTreeCWD guifg=".s:red0
+
+hi NERDTreeExecFile		guifg=#87ff00 gui=bold
+hi NERDTreeDirSlash		guifg=#f02e6e gui=bold
+hi NERDTreeCWD			guibg=NONE guifg=#f02e6e
+hi NERDTreeExecFile		guifg=#87ff00 gui=bold
+hi NERDTreeDirSlash		guifg=#f02e6e gui=bold
+hi NERDTreeCWD			guibg=NONE guifg=#f02e6e
+hi pythonFunction       guifg=#87ff00 gui=bold
+hi Function guifg=#63ff51
+hi semshiGlobal guifg=#FF79FF
+hi pythonParam guifg=#FF579C
+hi Title guifg=#00cfff
+hi pythonComment guifg=#505050
+hi link GalaxyDiagnosticError LspDiagnosticsDefaultError
+hi link GalaxyDiagnsticInfo LspDiagnosticsDefaultInformation
+hi link GalaxyDiagnosticWarn LspDiagnosticsDefaultWarning
+hi GalaxyBufferIcon guifg=#FFFF00 guibg=#303030
+hi GalaxyGitIcon guifg=#F92672 guibg=#303030
+hi GalaxyFileName gui=bold guifg=#bbc2cf guibg=#303030
+hi GalaxyGitBranch gui=bold guifg=#63FF51 guibg=#303030
+hi GalaxyLineInfo  guibg=#23272e
+hi TSField guifg=#FF03CE
+hi TSFloat guifg=#87FF00
+hi TSInclude guifg=#AE81FF
+hi TSConstant guifg=#15AABF gui=bold
+hi Operator guifg=#FF4081
+hi pythonImport guifg=#40C057 " guifg=#03a9f4
+
 
 " \ hi pythonRainbowParentheses		guibg=NONE guifg=#FD971F gui=bold |
 " \ hi pythonRainbow_o0				guibg=NONE guifg=#5af7b0 gui=bold |
@@ -564,17 +469,6 @@ highlight semshiAttribute guibg=NONE guifg=#CC78FA gui=bold
 "
 
 
-hi clear SignColumn
-hi ALEWarningSign				guibg=NONE guifg=#87ff00 gui=NONE
-hi ALEErrorSign					guibg=NONE guifg=#F92672 gui=bold
-
-
-hi GitGutterAdd					guibg=NONE guifg=#87FF00
-hi GitGutterAddLine				guibg=NONE guifg=#87FF00
-hi GitGutterChange				guibg=NONE guifg=#FD971F
-hi GitGutterDelete				guibg=NONE guifg=#FF2600
-hi GitGutterChangeDelete		guibg=NONE guifg=#AE81FF
-"
 ""#A267F5, #F3907e #ffe46b #fefeff
 "MATERIAL COLOR SCHEME
 " #f44336 #e91e63 #9c27b0 #673ab7 #3f51b5 #2196f3 #03a9f4 #00bcd4
@@ -681,9 +575,6 @@ hi GitGutterChangeDelete		guibg=NONE guifg=#AE81FF
 " #F8F8F2
 
 
-hi ActiveWindow     guibg=#1c1c1c
-hi InactiveWindow   guibg=#303030
-
 
 " Must be at the end, because of ctermbg=234 bug.
 " https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/nqh6tOM87QUJ
@@ -692,52 +583,20 @@ set background=dark
 
 "R O Y G T B M P
 " NERDTree
-
-exec "hi NERDTreeExecFile guifg=".s:green0
-exec "hi NERDTreeDirSlash guifg=".s:teal0
-exec "hi NERDTreeCWD guifg=".s:red0
-
-hi NERDTreeExecFile		guifg=#87ff00 gui=bold
-hi NERDTreeDirSlash		guifg=#f02e6e gui=bold
-hi NERDTreeCWD			guibg=NONE guifg=#f02e6e
 """"""""""""
 " Clean up "
 """"""""""""
 
-hi NERDTreeExecFile		guifg=#87ff00 gui=bold
-hi NERDTreeDirSlash		guifg=#f02e6e gui=bold
-hi NERDTreeCWD			guibg=NONE guifg=#f02e6e
-hi pythonFunction       guifg=#87ff00 gui=bold
 """"""""""""
 " Clean up "
 """"""""""""
-hi Function guifg=#63ff51
-hi semshiGlobal guifg=#FF79FF
-hi pythonParam guifg=#FF579C
-hi Title guifg=#00cfff
-hi pythonComment guifg=#505050
-hi link GalaxyDiagnosticError LspDiagnosticsDefaultError
-hi link GalaxyDiagnsticInfo LspDiagnosticsDefaultInformation
-hi link GalaxyDiagnosticWarn LspDiagnosticsDefaultWarning
-hi GalaxyBufferIcon guifg=#FFFF00 guibg=#303030
-hi GalaxyGitIcon guifg=#F92672 guibg=#303030
-hi GalaxyFileName gui=bold guifg=#bbc2cf guibg=#303030
-hi GalaxyGitBranch gui=bold guifg=#63FF51 guibg=#303030
 " hi GitBranchSeparator cleared
-hi GalaxyLineInfo  guibg=#23272e
-
-hi TSField guifg=#FF03CE
-hi TSFloat guifg=#87FF00
-hi TSInclude guifg=#AE81FF
-hi TSConstant guifg=#FF7B72 gui=bold
  " #00CBCC
-hi Operator guifg=#FF4081
 " hi pythonTSVariable guifg=#00CCFF
 
 " LspDiagnosticsDefaultHint xxx guifg=#63FF51
 " LspDiagnosticsDefaultError xxx guifg=#F20052
 
-hi pythonImport guifg=#03a9f4
 
 " hi link Title            semshiGlobal
 " syntax match pythonMethod /\v[[:alpha:]_.]+\ze(\s?\()/

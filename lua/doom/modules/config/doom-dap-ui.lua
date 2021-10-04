@@ -13,7 +13,6 @@ return function()
       repl = "r",
     },
     sidebar = {
-      open_on_start = true,
       elements = {
         -- You can change the order of elements in the sidebar
         "scopes",
@@ -25,7 +24,6 @@ return function()
       position = "left", -- Can be "left" or "right"
     },
     tray = {
-      open_on_start = true,
       elements = {
         "repl",
       },

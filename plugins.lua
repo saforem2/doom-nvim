@@ -23,7 +23,7 @@ return {
     'ap/vim-css-color',
   },
   {
-    'lervag/vimtex',
+    'mbbill/undotree',
   },
   {
     'jakewvincent/texmagic.nvim',
@@ -54,5 +54,9 @@ return {
   },
   {
     'sainnhe/sonokai'
+  },
+  {
+    "nvim-treesitter/playground",
+    cmd = "TSHighlightCapturesUnderCursor",
   },
 }
