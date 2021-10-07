@@ -376,7 +376,7 @@ local nvim = {
   mappings = {
         { 'n', 'ca', ':Lspsaga codeaction<CR>', { silent = true }, },
         { 'n', 'gr', ':Lspsaga rename<CR>', { silent = true }, },
-        { 'n', 'H', [[:keeppatterns substitute/\s*\%#\s*/\r/e <bar> normal! ==<CR>]], { silent = true }, },
+        { 'n', 'S', [[:keeppatterns substitute/\s*\%#\s*/\r/e <bar> normal! ==<CR>]], { silent = true }, },
     },
 
   -- Set custom commands
