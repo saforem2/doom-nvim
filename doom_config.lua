@@ -14,7 +14,7 @@ local doom = {
   -- false : Disable autosave
   -- true  : Enable autosave
   -- @default = false
-  autosave = false,
+  autosave = true,
 
   -- Format on save
   -- false : Disable format on save
@@ -57,7 +57,7 @@ local doom = {
   -- false : disables line wrapping
   -- true  : enables line wrapping
   -- @default = false
-  line_wrap = false,
+  line_wrap = true,
 
   -- Enable Show mode ( -- INSERT --, -- NORMAL --, -- VISUAL -- )
   -- false : disables show mode
@@ -124,7 +124,7 @@ local doom = {
   -- false : disables auto comment
   -- true  : enables auto comment
   -- @default = false
-  auto_comment = false,
+  auto_comment = true,
 
   -- Show indent lines
   -- @default = true
@@ -172,7 +172,7 @@ local doom = {
 
   -- Checkupdates on start
   -- @default = false
-  check_updates = false,
+  check_updates = true,
 
   -- Auto install plugins on launch, useful if you don't want to run
   -- PackerInstall every time you add a new plugin
@@ -216,7 +216,7 @@ local doom = {
 
   -- Completion box height
   -- @default = 10
-  complete_size = 10,
+  complete_size = 15,
 
   -- Completion box transparency
   -- 0 = no transparency
@@ -246,7 +246,7 @@ local doom = {
   -- 2 : Concealed text is completely hidden unless it has a custom replacement
   --     character defined
   -- 3 : Concealed text is completely hidden
-  conceallevel = 1,
+  conceallevel = 2,
 
   -- Logging level
   -- Set Doom logging level
@@ -258,7 +258,7 @@ local doom = {
   --   · error
   --   · fatal
   -- @default = 'info'
-  logging = "info",
+  logging = "debug",
 
   -- Set the Terminal direction
   -- Available directions:
@@ -310,8 +310,8 @@ local doom = {
   -- @default = "FiraCode Nerd Font", @default font size = 15,
   -- WARNING: Font sizes must be in string format!
   -- guifont = "FiraCode Nerd Font",
-  guifont = "agave Nerd Font",
-  guifont_size = "14",
+  guifont = "Source Code Pro",
+  guifont_size = "15",
 
   -- change Which Key background color
   -- can use hex, or normal color names (eg: Red, Gree, Blue)
@@ -358,7 +358,8 @@ local nvim = {
   --   augroup_name = {
   --      { 'BufNewFile,BufRead', 'doomrc', 'set ft=lua'}
   --   }
-  autocmds = {},
+  autocmds = {
+  },
 
   -- Set custom key bindings
   -- @default = {}
@@ -385,8 +386,7 @@ local nvim = {
   --   {
   --      'echo "Hello, custom commands!"'
   --   }
-  commands = {
-    },
+  commands = {},
 
   -- Set custom functions
   -- @default = {}
@@ -405,13 +405,18 @@ local nvim = {
   --      { ['shiftwidth'] = 4 }
   --   }
   options = {
-    ['shiftwidth'] = 4,
+    -- ['shiftwidth'] = 4,
     ['number'] = true,
     ['foldmethod'] = 'expr',
     ['ignorecase'] = true,
     ['smartcase'] = true,
     ['expandtab'] = true,
     ['smartindent'] = true,
+    -- ['wrap'] = true,
+    -- ['linebreak'] = true,
+    -- ['textwidth'] = 0,
+    -- ['nolist'] = true,
+    -- ['spell'] = true,
     -- ['minimap_width'] = 8,
     -- ['minimap_auto_start'] = 1,
     -- ['minimap_auto_start_win_enter'] = 1,

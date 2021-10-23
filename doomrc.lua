@@ -19,7 +19,7 @@ local doom = {
     "tabline",            -- Tabline, shows your buffers list at top
     -- "zen",             -- Distraction free environment
     "which-key",          -- Keybindings popup menu like Emacs' guide-key
-    -- "indentlines",     -- Show indent lines
+    "indentlines",     -- Show indent lines
     "show_registers",  -- popup that shows register contents
   },
   doom = {
@@ -53,7 +53,7 @@ local doom = {
     --
     "html +lsp",            -- HTML support
     "css +lsp",             -- CSS support
-    "javascript +lsp",      -- JavaScript support
+    "javascript",      -- JavaScript support
     "typescript +lsp",      -- TypeScript support
     "bash +lsp",            -- The terminal gods language
     "python +lsp",     -- Python support + lsp

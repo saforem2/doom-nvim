@@ -13,24 +13,47 @@
 -- }
 
 return {
-  {
-    'ActivityWatch/aw-watcher-vim',
-  },
-  {
-    'wakatime/vim-wakatime',
-  },
-  {
-    'ap/vim-css-color',
-  },
-  {
-    'mbbill/undotree',
-  },
+  { 'ActivityWatch/aw-watcher-vim' },
+  { 'wakatime/vim-wakatime' },
+  { 'ap/vim-css-color' },
+  { 'mbbill/undotree' },
   {
     'jakewvincent/texmagic.nvim',
+    config = function()
+      require('texmagic').setup({
+        engines = {
+          pdflatex = {
+            -- This has the same name as a default engine but would be preferred
+            -- over the same-name default if defined
+            executable = "latexmk",
+            args = {
+              "-pdflatex",
+              "-interaction=nonstopmode",
+              "-synctex=1",
+              "-outdir=.build",
+              "-pv",
+              "%f"
+            },
+            isContinuous = true
+          },
+          lualatex = {
+            -- This is *not* one of the defaults, but it can be called via
+            -- magic comment if defined here
+            executable = "latexmk",
+            args = {
+              "-pdflua",
+              "-interaction=nonstopmode",
+              "-synctex=1",
+              "-pv",
+              "%f"
+            },
+            isContinuous = true
+          }
+        }
+      })
+    end,
   },
-  {
-    'ellisonleao/glow.nvim',
-  },
+  { 'ellisonleao/glow.nvim' },
   {
     'folke/lsp-colors.nvim',
     config = function()
@@ -46,17 +69,49 @@ return {
     'glepnir/lspsaga.nvim',
     requires = { 'neovim/nvim-lspconfig' },
   },
-  {
-    'wfxr/code-minimap',
-  },
-  {
-    'AndrewRadev/splitjoin.vim'
-  },
-  {
-    'sainnhe/sonokai'
-  },
+  { 'wfxr/code-minimap' },
+  { 'AndrewRadev/splitjoin.vim' },
+  { 'sainnhe/sonokai' },
   {
     "nvim-treesitter/playground",
     cmd = "TSHighlightCapturesUnderCursor",
   },
+  { 'kosayoda/nvim-lightbulb' },
+  { 'lervag/vimtex' },
+  { 'neovim/nvim-lspconfig' },
+  { 'hrsh7th/cmp-nvim-lsp' },
+  { 'hrsh7th/cmp-buffer' },
+  {
+    'hrsh7th/nvim-cmp',
+    -- config = require("custom.plugin.cmp"),
+    config = function()
+      require('custom.plugin.cmp')
+    end,
+    after = "nvim-lspconfig",
+  },
+  { 'saadparwaiz1/cmp_luasnip', },
+  {
+    'code-biscuits/nvim-biscuits',
+    config = function()
+      require('nvim-biscuits.').setup({
+        default_config = {
+          max_length = 12,
+          prefix_string = " 📎 "
+        },
+        language_config = {
+          html = {
+            prefix_string = " 🌐 "
+          },
+          javascript = {
+            prefix_string = " ✨ ",
+            max_length = 80
+          },
+          python = {
+            prefix_string = " 🐍 ",
+            max_length = 80,
+          },
+        }
+      })
+    end
+  }
 }
