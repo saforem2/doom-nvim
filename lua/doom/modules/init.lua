@@ -75,6 +75,11 @@ packer.startup(function(use)
     after = "nvim-treesitter",
   })
 
+  use({
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    after = "nvim-treesitter",
+  })
+
   -- Aniseed, required by some treesitter modules
   use({
     "Olical/aniseed",
