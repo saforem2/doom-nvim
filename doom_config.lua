@@ -18,7 +18,7 @@ M.config = {
     -- false : Disable autosave
     -- true  : Enable autosave
     -- @default = false
-    autosave = false,
+    autosave = true,
 
     -- Format on save
     -- false : Disable format on save
@@ -42,7 +42,7 @@ M.config = {
     -- false : Disable session autosave
     -- true  : Enable session autosave
     -- @default = false
-    autosave_sessions = false,
+    autosave_sessions = true,
 
     -- Autoload sessions
     -- false : Disable session autoload
@@ -62,20 +62,20 @@ M.config = {
     -- true  : enable undo files/undo dirs.
     -- @default = false
     -- WARNING: if you change this to false and you have an undo dir already,
-    --          it will REMOVE the undodir (loss of data might take place)
-    backup = false,
+    --          it will gEMOVE the undodir (loss of data might take place)
+    backup = true,
 
     -- Enable Line wrapping
     -- false : disables line wrapping
     -- true  : enables line wrapping
     -- @default = false
-    line_wrap = false,
+    line_wrap = true,
 
     -- Enable Show mode ( -- INSERT --, -- NORMAL --, -- VISUAL -- )
     -- false : disables show mode
     -- true  : enables show mode
     -- @default = false
-    show_mode = false,
+    show_mode = true,
 
     -- Enable scroll off
     -- false : disables scroll off
@@ -94,7 +94,7 @@ M.config = {
     -- false : Disable preservation of last editing position
     -- true  : Enable preservation of last editing position
     -- @default = false
-    preserve_edit_pos = false,
+    preserve_edit_pos = true,
 
     -- Allow overriding the default Doom Nvim keybinds
     -- false : Default keybinds cannot be overwritten
@@ -231,7 +231,7 @@ M.config = {
 
     -- Use floating windows for plugins manager (packer) operations
     -- @default = false
-    use_floating_win_packer = false,
+    use_floating_win_packer = true,
 
     -- Default indent size
     -- @default = 4
@@ -274,7 +274,7 @@ M.config = {
     -- 2 : Concealed text is completely hidden unless it has a custom replacement
     --     character defined
     -- 3 : Concealed text is completely hidden
-    conceallevel = 0,
+    conceallevel = 1,
 
     -- Logging level
     -- Set Doom logging level
@@ -295,7 +295,7 @@ M.config = {
     --   - window
     --   - float
     -- @default = 'horizontal'
-    terminal_direction = "horizontal",
+    terminal_direction = "float",
 
     -- NOTE: This will only be activated if 'backup' is true.
     -- We don'recommend you put this outside of neovim so we've restricted to the path: ~/.config/nvim
@@ -305,7 +305,7 @@ M.config = {
 
     -- Default colorscheme
     -- @default = doom-one
-    colorscheme = "doom-one",
+    colorscheme = "molokai",
 
     -- Background color
     -- @default = dark
@@ -337,13 +337,13 @@ M.config = {
     -- Set gui fonts here
     -- @default = "FiraCode Nerd Font", @default font size = 15,
     -- WARNING: Font sizes must be in string format!
-    guifont = "FiraCode Nerd Font",
+    guifont = "Source Code Pro",
     guifont_size = "15",
 
     -- Change Which Key background color
     -- can use hex, or normal color names (eg: Red, Gree, Blue)
     -- @default = #202328
-    whichkey_bg = "#202328",
+    whichkey_bg = "#202020",
 
     -- Set your custom lsp diagnostic symbols below
     lsp_error = "",
@@ -372,9 +372,9 @@ M.config = {
     -- Set your dashboard custom colors below
     -- @default = doom emacs' default dashboard colors
     dashboard_custom_colors = {
-      header_color = "#586268",
-      center_color = "#51afef",
-      shortcut_color = "#a9a1e1",
+      header_color = "#1c1c1c",
+      center_color = "#00CCFF",
+      shortcut_color = "#B2FF59",
       footer_color = "#586268",
     },
 
@@ -397,8 +397,11 @@ M.config = {
     --   enabling this is as safe as external packages such as securemodelines.
     --   See https://github.com/neovim/neovim/issues/2865
     --
-    global_variables = {},
-
+    global_variables = {
+      { ['minimap_width'] = 8 },
+      { ['minimap_auto_start'] = true },
+      { ['minimap_auto_start_win_enter'] = 1 },
+    },
     -- Set custom autocommands
     -- @default = {}
     -- example:
@@ -420,7 +423,11 @@ M.config = {
     --     ':Lspsaga ...' is the command to be executed
     --     options is a Lua table containing the mapping options, e.g.
     --     { silent = true }, see ':h map-arguments'.
-    mappings = {},
+    mappings = {
+        { 'n', 'ca', ':Lspsaga codeaction<CR>', { silent = true }, },
+        { 'n', 'gr', ':Lspsaga rename<CR>', { silent = true }, },
+        { 'n', 'S', [[:keeppatterns substitute/\s*\%#\s*/\r/e <bar> normal! ==<CR>]], { silent = true }, },
+      },
 
     -- Set custom commands
     -- @default = {}
@@ -451,8 +458,14 @@ M.config = {
     --   {
     --      ['shiftwidth'] = 4
     --   }
-    options = {},
-  },
+  options = {
+			expandtab = true,
+			foldmethod = "expr",
+			smartcase = true,
+			ignorecase = true,
+			smartindent = true,
+		},
+	},
 }
 
 return M
