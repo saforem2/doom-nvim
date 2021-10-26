@@ -8,12 +8,12 @@ local functions = require("doom.core.functions")
 local log = require("doom.extras.logging")
 local config = require("doom.core.config").config
 
-local M = {}
+local settings = {}
 
 log.debug("Loading Doom defaults module ...")
 
 -- load_default_options sets and loads default Neovim options based on doom_config.lua values
-M.load_default_options = function()
+settings.load_default_options = function()
   ----- Default Neovim configurations
   -- Global options
   vim.opt.hidden = true
@@ -145,13 +145,14 @@ M.load_default_options = function()
   vim.opt.softtabstop = config.doom.indent
   vim.opt.colorcolumn = tostring(config.doom.max_columns)
   vim.opt.conceallevel = config.doom.conceallevel
+  vim.opt.foldenable = config.doom.foldenable
 
   -- Better folding
   vim.cmd([[set foldtext=luaeval(\"require('doom.core.functions').sugar_folds()\")]])
 end
 
 -- Doom Nvim commands
-M.doom_commands = function()
+settings.doom_commands = function()
   -- Set a custom command to update Doom Nvim
   -- can be called by using :DoomUpdate
   vim.cmd('command! DoomUpdate lua require("doom.core.functions").update_doom()')
@@ -179,7 +180,7 @@ M.doom_commands = function()
 end
 
 -- Custom Doom Nvim options
-M.custom_options = function()
+settings.custom_options = function()
   -- Load user-defined settings from the Neovim field in the doom_config.lua file
   functions.load_custom_settings(config.nvim.functions, "functions")
   functions.load_custom_settings(config.nvim.autocmds, "autocmds")
@@ -189,4 +190,4 @@ M.custom_options = function()
   functions.load_custom_settings(config.nvim.options, "options")
 end
 
-return M
+return settings
