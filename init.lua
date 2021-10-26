@@ -17,6 +17,7 @@ vim.g.loaded_gzip = false
 vim.g.loaded_tarPlugin = false
 vim.g.loaded_zipPlugin = false
 vim.g.loaded_2html_plugin = false
+vim.g.loaded_remote_plugin = true
 
 ---- Doom Configurations ------------------------
 -------------------------------------------------
@@ -53,4 +54,5 @@ vim.defer_fn(function()
       PackerLoad which-key.nvim
     ]])
   end
+
 end, 0)
