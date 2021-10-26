@@ -605,3 +605,4 @@ unlet s:shade0 s:shade1 s:shade2 s:shade3 s:shade4 s:shade5 s:shade6 s:shade7 s:
 hi texCmdEnv guifg=#00CCFF
 hi texEnvArgName guifg=#63FF51
 hi TSConstant guifg=#FFAB40
+hi TSParameter guifg=#FFAB40 gui=italic

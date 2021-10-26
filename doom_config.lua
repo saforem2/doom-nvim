@@ -405,13 +405,13 @@ local nvim = {
   --      ['shiftwidth'] = 4
   --   }
   options = {
-    -- ['shiftwidth'] = 4,
     ['number'] = true,
     ['foldmethod'] = 'expr',
     ['ignorecase'] = true,
     ['smartcase'] = true,
     ['expandtab'] = true,
     ['smartindent'] = true,
+    -- ['shiftwidth'] = 4,
     -- ['wrap'] = true,
     -- ['linebreak'] = true,
     -- ['textwidth'] = 0,
