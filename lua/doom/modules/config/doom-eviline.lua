@@ -1,7 +1,8 @@
 return function()
   local utils = require("doom.utils")
   local config = require("doom.core.config").config
-  local colors = require("galaxyline.themes.colors").get_color
+  -- local colors = require("galaxyline.themes.colors").get_color
+  local colors = require("doom.modules.config.doom-eviline-palettes").get_color
 
   local bo = vim.bo
   local gl = require("galaxyline")

@@ -2,6 +2,7 @@ return function()
   local has_value = require("doom.utils").has_value
   local modules = require("doom.core.config.modules").modules
   local is_plugin_disabled = require("doom.utils").is_plugin_disabled
+  local incremental_selection = require("nvim-treesitter.incremental_selection")
 
   local function get_ts_parsers(languages)
     local langs = {}
@@ -55,12 +56,30 @@ return function()
 
   require("nvim-treesitter.configs").setup({
     ensure_installed = get_ts_parsers(modules.langs),
-    highlight = { enable = true },
+    highlight = {
+      enable = true,
+      custom_captures = {
+        -- Highlight the @foo.bar capture group with the "Identifier" highlight group
+        ["foo.bar"] = "Identifier",
+      },
+      additional_vim_regex_highlighting = true,
+    },
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = "gnn",
+        node_incremental = "grn",
+        scope_incremental = "grc",
+        node_decremental = "grm",
+      },
+    },
     autopairs = {
       enable = is_plugin_disabled("autopairs") and false or true,
     },
     indent = { enable = true },
-    playground = { enable = true },
+    playground = {
+      enable = true
+    },
     tree_docs = { enable = true },
     context_commentstring = { enable = true },
     autotag = {
