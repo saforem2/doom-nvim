@@ -72,7 +72,8 @@ return function()
         name = "Zsh",
       },
       doomrc = {
-        icon = "",
+        icon = " ",
+        -- icon = "",
         color = "#7F5AB6",
         name = "doomrc",
       },

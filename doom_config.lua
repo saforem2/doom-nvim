@@ -142,7 +142,7 @@ M.config = {
     -- false : disables auto comment
     -- true  : enables auto comment
     -- @default = false
-    auto_comment = false,
+    auto_comment = true,
 
     -- Show indent lines
     -- @default = true
@@ -165,7 +165,7 @@ M.config = {
     -- false : Manually set win width
     -- true  : Active window auto sets width
     -- @default = false, @default win_width_nr = 85
-    win_width = false,
+    win_width = true,
     win_width_nr = 85,
 
     -- Enable Highlight on yank
@@ -246,7 +246,7 @@ M.config = {
     -- Set max cols
     -- Defines the column to show a vertical marker
     -- @default = 80
-    max_columns = 80,
+    max_columns = 120,
 
     -- Completion box height
     -- @default = 10
@@ -256,7 +256,7 @@ M.config = {
     -- 0 = no transparency
     -- 100 = fully transparent
     -- @default = 25
-    complete_transparency = 25,
+    complete_transparency = 1,
 
     -- Sidebar sizing
     -- Specifies the default width of Tree Explorer and Tagbar
@@ -266,7 +266,7 @@ M.config = {
     -- Set the Terminal width
     -- Applies only to float direction
     -- @default = 70
-    terminal_width = 70,
+    terminal_width = 75,
 
     -- Set the Terminal height
     -- Applies to all directions except window
@@ -311,7 +311,7 @@ M.config = {
 
     -- Default colorscheme
     -- @default = doom-one
-    colorscheme = "molokai",
+    colorscheme = "sonokai",
 
     -- Background color
     -- @default = dark
@@ -321,13 +321,13 @@ M.config = {
     doom_one = {
       -- If the cursor color should be blue
       -- @default = false
-      cursor_coloring = false,
+      cursor_coloring = true,
       -- If TreeSitter highlighting should be enabled
       -- @default = true
       enable_treesitter = true,
       -- If the comments should be italic
       -- @default = false
-      italic_comments = false,
+      italic_comments = true,
       -- If the telescope plugin window should be colored
       -- @default = true
       telescope_highlights = true,
@@ -343,20 +343,23 @@ M.config = {
     -- Set gui fonts here
     -- @default = "FiraCode Nerd Font", @default font size = 15,
     -- WARNING: Font sizes must be in string format!
-    guifont = "Source Code Pro",
+    guifont = "VictorMono Nerd Font",
     guifont_size = "15",
 
     -- Change Which Key background color
     -- can use hex, or normal color names (eg: Red, Gree, Blue)
     -- @default = #202328
-    whichkey_bg = "#202020",
 
+
+
+    whichkey_bg = "#202020",
     -- Set your custom lsp diagnostic symbols below
     lsp_error = "",
     lsp_warn = "",
     lsp_hint = "",
     lsp_info = "",
-    lsp_virtual_text = " ",
+    lsp_virtual_text = " ",
+    -- 
 
     -- Set your linters for the programming languages that you use,
     -- see https://github.com/mfussenegger/nvim-lint#available-linters
@@ -404,9 +407,12 @@ M.config = {
     --   See https://github.com/neovim/neovim/issues/2865
     --
     global_variables = {
-      { ['minimap_width'] = 8 },
-      { ['minimap_auto_start'] = true },
-      { ['minimap_auto_start_win_enter'] = 1 },
+      ['minimap_width'] = 8,
+      ['minimap_auto_start'] = false,
+      ['minimap_auto_start_win_enter'] = 0,
+      ['modelineexpr'] = true,
+      ['pumblend'] = 0,
+    	['sonokai_style'] = 'andromeda'
     },
     -- Set custom autocommands
     -- @default = {}
@@ -432,7 +438,8 @@ M.config = {
     mappings = {
         { 'n', 'ca', ':Lspsaga codeaction<CR>', { silent = true }, },
         { 'n', 'gr', ':Lspsaga rename<CR>', { silent = true }, },
-        { 'n', 'S', [[:keeppatterns substitute/\s*\%#\s*/\r/e <bar> normal! ==<CR>]], { silent = true }, },
+        { 'n', 'S', [[:keeppatterns substitute/\s*\%#\s*/\r/e <bar> normal! ==<CR>]],
+        { silent = true }, },
       },
 
     -- Set custom commands
