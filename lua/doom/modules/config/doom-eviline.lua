@@ -1,15 +1,15 @@
 return function()
   local utils = require("doom.utils")
   local config = require("doom.core.config").config
-  -- local colors = require("galaxyline.themes.colors").get_color
-  local colors = require("doom.modules.config.doom-eviline-palettes").get_color
-
+  local colors = require("galaxyline.themes.colors").get_color
+  -- local colors = require("doom.modules.config.doom-eviline-palettes").get_color
   local gl = require("galaxyline")
   local lsp = require("galaxyline.providers.lsp")
   local buffer = require("galaxyline.providers.buffer")
   local condition = require("galaxyline.condition")
 
   local gls = gl.section
+
 
   gl.short_line_list = {
     "NvimTree",
@@ -73,7 +73,7 @@ return function()
           t = colors("red"),
         }
         vim.api.nvim_command("hi GalaxyViMode guifg=" .. mode_color[vim.fn.mode()]())
-        return "  "
+        return "  "
       end,
       highlight = { colors("red"), colors("bg"), "bold" },
     },
@@ -202,7 +202,7 @@ return function()
   gls.right[4] = {
     GitIcon = {
       provider = function()
-        return " "
+        return " "
       end,
       condition = condition.check_git_workspace,
       highlight = { colors("red"), colors("bg") },

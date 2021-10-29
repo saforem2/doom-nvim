@@ -7,20 +7,18 @@ local M = {}
 -- @return string
 M.get_color = function(name)
   return function()
-    local colors = {
-      -- bg = "#23272e",
-      bg = "#202020",
-      fg = "#505050",
-      section_bg = "#242424",
-      yellow = "#FFFF00",
-      cyan = "#46D9FF",
-      green = "#63FF51",
-      orange = "#FFB86C",
-      magenta = "#FF79FF",
-      blue = "#00CCFF",
-      red = "#FF2052",
-    }
-    if vim.g.colors_name == "doom-one" and vim.opt.background:get() == "light" then
+    if vim.g.colors_name:find("molokai") then
+      colors = {
+        bg = "#282C34",
+        fg = "#505050",
+        cyan = "#46D9FF",
+        green = "#63FF51",
+        orange = "#FFB86C",
+        magenta = "#FF79FF",
+        blue = "#00CCFF",
+        red = "#FF2052",
+      }
+    elseif vim.g.colors_name == "doom-one" and vim.opt.background:get() == "light" then
       colors = {
         bg = "#c6c7c7",
         fg = "#383a42",
@@ -89,5 +87,4 @@ M.get_color = function(name)
     return colors[name]
   end
 end
-
 return M

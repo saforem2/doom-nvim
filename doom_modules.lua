@@ -45,7 +45,7 @@ M.modules = {
     "linter",          -- Asynchronous linter, see errors in your code on the fly
     "lsp",                -- Language Server Protocols
     "minimap",         -- Code minimap, requires github.com/wfxr/code-minimap
-    -- "ranger",          -- Ranger File Browser, requires ranger file browser
+    "ranger",          -- Ranger File Browser, requires ranger file browser
     "snippets",           -- Code snippets
     "symbols",         -- LSP symbols and tags
     "telescope",          -- Highly extendable fuzzy finder over lists
@@ -76,7 +76,7 @@ M.modules = {
     "rust +lsp",       -- Let's get rusty!
 
     "comment",         -- Better annotations and comments
-    -- "config",          -- Configuration files (JSON, YAML, TOML)
+    "config",          -- Configuration files (JSON, YAML, TOML)
     -- "dockerfile",      -- Do you like containers, right?
   },
   utilities = {

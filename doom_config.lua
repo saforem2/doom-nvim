@@ -7,7 +7,6 @@
 --
 --   2. Nvim, this one defines all the custom configurations that you want to
 --      use in Neovim, e.g. a colorscheme italic_comments global variable
-
 local M = {}
 
 M.source = debug.getinfo(1, "S").source:sub(2)
@@ -261,7 +260,7 @@ M.config = {
     -- Sidebar sizing
     -- Specifies the default width of Tree Explorer and Tagbar
     -- @default = 25
-    sidebar_width = 25,
+    sidebar_width = 15,
 
     -- Set the Terminal width
     -- Applies only to float direction
@@ -311,7 +310,7 @@ M.config = {
 
     -- Default colorscheme
     -- @default = doom-one
-    colorscheme = "sonokai",
+    colorscheme = "molokai",
 
     -- Background color
     -- @default = dark
@@ -349,10 +348,8 @@ M.config = {
     -- Change Which Key background color
     -- can use hex, or normal color names (eg: Red, Gree, Blue)
     -- @default = #202328
-
-
-
     whichkey_bg = "#202020",
+
     -- Set your custom lsp diagnostic symbols below
     lsp_error = "",
     lsp_warn = "",
@@ -407,14 +404,14 @@ M.config = {
     --   See https://github.com/neovim/neovim/issues/2865
     --
     global_variables = {
-      ['minimap_width'] = 8,
-      ['minimap_auto_start'] = false,
-      ['minimap_auto_start_win_enter'] = 0,
-      ['modelineexpr'] = true,
-      ['pumblend'] = 0,
-    	['sonokai_style'] = 'andromeda'
-    },
-    -- Set custom autocommands
+			['pumblend'] = 0,
+			['sonokai_style'] = 'shusia',
+			['minimap_width'] = 8,
+			['minimap_auto_start'] = false,
+			['minimap_auto_start_win_enter'] = 0,
+			['modelineexpr'] = true,
+		},
+		-- Set custom autocommands
     -- @default = {}
     -- example:
     --   augroup_name = {
@@ -436,10 +433,10 @@ M.config = {
     --     options is a Lua table containing the mapping options, e.g.
     --     { silent = true }, see ':h map-arguments'.
     mappings = {
-        { 'n', 'ca', ':Lspsaga codeaction<CR>', { silent = true }, },
-        { 'n', 'gr', ':Lspsaga rename<CR>', { silent = true }, },
-        { 'n', 'S', [[:keeppatterns substitute/\s*\%#\s*/\r/e <bar> normal! ==<CR>]],
-        { silent = true }, },
+        { 'n', 'ca', ':Lspsaga codeaction<CR>', },
+        { 'n', 'gr', ':Lspsaga rename<CR>', },
+        { 'n', 'S', [[:keeppatterns substitute/\s*\%#\s*/\r/e <bar> normal! ==<CR>]], },
+        { 'n', 'L', [[:keeppatterns substitute/\s*\%#\s*/\r/e <bar> normal! ==<CR>]], },
       },
 
     -- Set custom commands
@@ -472,11 +469,12 @@ M.config = {
     --      ['shiftwidth'] = 4
     --   }
   options = {
-			expandtab = true,
-			foldmethod = "expr",
-			smartcase = true,
-			ignorecase = true,
-			smartindent = true,
+		  ["shiftwidth"] = 4,
+			["expandtab"] = true,
+			["foldmethod"] = "expr",
+			["smartcase"] = true,
+			["ignorecase"] = true,
+			["smartindent"] = true,
 		},
 	},
 }
