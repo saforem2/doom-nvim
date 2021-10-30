@@ -1,4 +1,4 @@
--- doom_config - Doom Nvim user configurations file
+--https://virtualhelpdesk.cels.anl.gov/docs/linux/home-directories-and-project-directories/web-public_html-directories/ doom_config - Doom Nvim user configurations file
 --
 -- This file contains the user-defined configurations for Doom nvim and consists
 -- in two Lua tables:
@@ -145,7 +145,7 @@ M.config = {
 
     -- Show indent lines
     -- @default = true
-    show_indent = true,
+    show_indent = false,
 
     -- Expand tabs
     -- Specifies if spaces or tabs must be used
