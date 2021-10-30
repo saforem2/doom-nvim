@@ -31,7 +31,7 @@ mappings.map(
 --     Disable keys      --
 ---]]-----------------[[---
 -- Disable accidentally pressing ctrl-z and suspending
-mappings.map("n", "<c-z>", "<Nop>", opts, "Editor", "disable_suspending", "Disable suspending")
+-- mappings.map("n", "<c-z>", "<Nop>", opts, "Editor", "disable_suspending", "Disable suspending")
 
 -- Disable ex mode
 mappings.map("n", "Q", "<Nop>", opts, "Editor", "disable_ex", "Disable ex mode")
@@ -44,8 +44,8 @@ end
 ---[[-----------------]]---
 --     Escape Remaps     --
 ---]]-----------------[[---
-mappings.map("i", "jk", "<ESC>", opts, "Editor", "exit_insert", "Exit insert mode")
-mappings.map("i", "kj", "<ESC>", opts, "Editor", "exit_insert_alt", "Exit insert mode")
+--[[ mappings.map("i", "jk", "<ESC>", opts, "Editor", "exit_insert", "Exit insert mode")
+mappings.map("i", "kj", "<ESC>", opts, "Editor", "exit_insert_alt", "Exit insert mode") ]]
 
 ---[[-----------------]]---
 --    Make inclusive     --
