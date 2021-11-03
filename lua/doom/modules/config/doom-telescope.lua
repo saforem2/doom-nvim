@@ -18,7 +18,7 @@ return function()
       selection_strategy = "reset",
       sorting_strategy = "descending",
       layout_strategy = "horizontal",
-      prompt_prefix = "   ",
+      prompt_prefix = " ",
       selection_caret = " ",
       layout_config = {
         width = 0.75,
