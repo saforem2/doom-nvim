@@ -245,7 +245,7 @@ M.config = {
     -- Set max cols
     -- Defines the column to show a vertical marker
     -- @default = 80
-    max_columns = 120,
+    max_columns = 80,
 
     -- Completion box height
     -- @default = 10
@@ -356,7 +356,6 @@ M.config = {
     lsp_hint = "",
     lsp_info = "",
     lsp_virtual_text = " ",
-    -- 
 
     -- Set your linters for the programming languages that you use,
     -- see https://github.com/mfussenegger/nvim-lint#available-linters
@@ -469,9 +468,10 @@ M.config = {
     --      ['shiftwidth'] = 4
     --   }
   options = {
-		  ["shiftwidth"] = 4,
+			["shiftwidth"] = 4,
 			["expandtab"] = true,
 			["foldmethod"] = "expr",
+			["foldexpr"] = "nvim_treesitter#foldexpr()",
 			["smartcase"] = true,
 			["ignorecase"] = true,
 			["smartindent"] = true,
