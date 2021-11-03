@@ -80,13 +80,13 @@ M.plugins = {
     "nvim-treesitter/playground",
     cmd = "TSHighlightCapturesUnderCursor",
   },
-  { 'kosayoda/nvim-lightbulb' },
-  { 'machakann/vim-sandwich' },
-  { 'lervag/vimtex' },
-  { 'rktjmp/lush.nvim' },
-  {
-  	"ahmedkhalf/project.nvim",
-  	config = function()
+	{ 'kosayoda/nvim-lightbulb' },
+	{ 'machakann/vim-sandwich' },
+	{ 'lervag/vimtex' },
+	{ 'rktjmp/lush.nvim' },
+	{
+		"ahmedkhalf/project.nvim",
+		config = function()
   		require("project_nvim").setup({
   			-- Manual mode doesn't automatically change your root directory, so you
   			-- have the option to manually do so using `:ProjectRoot` command.
@@ -121,7 +121,9 @@ M.plugins = {
   			datapath = vim.fn.stdpath("data"),
   		})
   	end
-  },
+	},
+	{ "patstockwell/vim-monokai-tasty" },
+	{ 'vim-python/python-syntax' },
 }
 
 return M
