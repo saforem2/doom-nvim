@@ -9,13 +9,13 @@ M.get_color = function(name)
   return function()
     if vim.g.colors_name:find("molokai") then
       colors = {
-        bg = "#282C34",
+        bg = "#202020",
         fg = "#505050",
-        cyan = "#46D9FF",
+        cyan = "#00CCFF",
         green = "#63FF51",
-        orange = "#FFB86C",
-        magenta = "#FF79FF",
-        blue = "#00CCFF",
+        orange = "#FD971f",
+        magenta = "#E040Fb",
+        blue = "#007DFF",
         red = "#FF2052",
       }
     elseif vim.g.colors_name == "doom-one" and vim.opt.background:get() == "light" then
