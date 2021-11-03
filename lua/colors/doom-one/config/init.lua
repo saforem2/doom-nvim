@@ -2,14 +2,14 @@
 local config = {}
 
 local configuration = {
-  cursor_coloring = false,
-  terminal_colors = false,
-  italic_comments = false,
+  cursor_coloring = true,
+  terminal_colors = true,
+  italic_comments = true,
   enable_treesitter = true,
   transparent_background = false,
   pumblend = {
     enable = true,
-    transparency_amount = 20,
+    transparency_amount = 0,
   },
   plugins_integrations = {
     neorg = true,
@@ -17,7 +17,7 @@ local configuration = {
     bufferline = false,
     gitgutter = false,
     gitsigns = true,
-    telescope = false,
+    telescope = true,
     neogit = true,
     nvim_tree = true,
     dashboard = true,
