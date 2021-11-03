@@ -207,8 +207,8 @@ hi DiffChange      guifg=#E040FB guibg=NONE
 hi DiffDelete      guifg=#FF2600 guibg=NONE
 " hi DiffText        guifg=# gui=italic,bold
 hi Directory       guifg=#b2b2b2
-hi Error           guifg=#FF2600 guibg=#F7C2CC
-hi ErrorMsg        guifg=#F92672 guibg=#232526 gui=bold
+" hi Error           guifg=#FF2600 guibg=#F7C2CC
+" hi ErrorMsg        guifg=#F92672 guibg=#232526 gui=bold
 hi Exception       guifg=#fd971f               gui=bold
 hi Float           guifg=#AE81FF
 hi Folded	       guifg=#465457 guibg=#1e1e1e  gui=bold,italic
@@ -243,7 +243,7 @@ hi Search          guifg=#FFFFFF guibg=#FF2600 gui=bold
 hi SignColumn      guifg=#fd971f guibg=#232526
 hi SpecialChar     guifg=#F92672               gui=bold
 hi SpecialComment  guifg=#465457               gui=bold,italic
-hi Special         guifg=#519aba guibg=bg,italic      gui=bold
+hi Special         guifg=#00CCFF guibg=bg,italic      gui=bold
 
 
 
@@ -285,7 +285,6 @@ hi linenr		    guifg=#202020   guibg=NONE
 hi qfLineNr         guifg=#bcbcbc   guibg=NONE
 hi NonText          guifg=#465457   guibg=NONE
 hi SpecialKey       guifg=#465457   guibg=NONE
-"
 " hi Character       guifg=#E6DB74
 " hi String          guifg=#E6DB74
 " hi String          guifg=#ffff00 gui=italic
@@ -351,51 +350,6 @@ hi SpecialKey       guifg=#465457   guibg=NONE
 " " hi link SpecialComment      Special
 " hi link Tag                 Special
 
-" python ---------------------------------------------------------------------
-autocmd FileType python
-    \ hi pythonBuiltinObj guibg=NONE guifg=#d3ff00 gui=bold |
-    \ hi pythonBoolean guibg=NONE guifg=#66D9EF gui=bold |
-    \ hi link pythonImport        PreProc |
-    \ hi link pythonFunction      Structure |
-    \ hi link pythonExceptions    PreProc |
-    \ hi link pythonBrackets		PreProc |
-    \ hi link pythonDef Operator |
-    \ hi link pythonSpecial Boolean |
-    \ hi link pythonDecorator Type |
-    \ hi link pythonAs PreProc |
-    \ hi link pythonConstant Constant |
-    \ hi link pythonFString		String |
-    \ hi link pythonRawFString	String |
-    \ hi pythonMagic				guibg=NONE guifg=#8e44ad gui=NONE |
-    \ hi pythonRepeat				guibg=NONE guifg=#d3ff00 gui=NONE |
-    \ hi pythonComment              guibg=NONE guifg=#494949 gui=italic |
-    \ hi pythonWordOperator			guibg=NONE guifg=#d3ff00 gui=NONE |
-    \ hi pythonOperator				guibg=NONE guifg=#F92672 gui=bold |
-    \ hi pythonDocstring			guibg=NONE guifg=#606060 gui=NONE,italic |
-    \ hi pythonConstant				guibg=NONE guifg=#FF9944 gui=bold |
-    \ hi pythonNone					guibg=NONE guifg=#d3ff00 gui=bold |
-    \ hi pythonExtraOperator		guibg=NONE guifg=#87ff00 gui=bold |
-    \ hi pythonExtraPseudoOperator	guibg=NONE guifg=#87ff00 gui=bold |
-    \ hi pythonParameters			guibg=NONE guifg=#656565 gui=bold |
-    \ hi pythonClassParameters		guibg=NONE guifg=#87ff00 gui=bold,underline |
-    \ hi pythonArg					guibg=NONE guifg=#87ff00 gui=bold |
-    \ hi pythonLibraries			guibg=NONE guifg=#FF79FF gui=NONE |
-    \ hi pythonVars				    guibg=NONE guifg=#fd971f gui=NONE |
-    \ hi pythonParam				guibg=NONE guifg=#87ff00 gui=bold |
-    \ hi pythonClassVars			guibg=NONE guifg=#f553bf gui=bold |
-    \ hi pythonNote					guibg=NONE guifg=#d3ff00 gui=bold,italic |
-    \ hi pythonArgs					guibg=NONE guifg=#007Dff gui=NONE |
-    \ hi pythonKwargs				guibg=NONE guifg=#fd971f gui=bold,italic |
-    \ hi pythonReturns				guibg=NONE guifg=#FFFFFF gui=bold,italic |
-    \ hi pythonBrackets				guibg=NONE guifg=#f92672 gui=bold |
-    \ hi pythonBracket              guibg=NONE guifg=#03CEFF gui=bold |
-    \ hi pythonDottedName           guibg=NONE guifg=#EE4EB8 gui=bold |
-    \ hi pythonFunction             guibg=NONE guifg=#87ff00 gui=bold |
-    \ hi pythonMethod               guibg=NONE guifg=#00ebdb gui=bold |
-    \ hi semshiAttribute            guibg=NONE guifg=#FF5995 gui=bold
-
-
-syn match pythonMethod /\v[[:alpha:]_.]+\ze(\s?\()/
 highlight pythonMethod guibg=NONE guifg=#87ff00 gui=NONE
 highlight semshiAttribute guibg=NONE guifg=#CC78FA gui=bold
 hi clear SignColumn
@@ -403,45 +357,125 @@ hi ALEWarningSign				guibg=NONE guifg=#87ff00 gui=NONE
 hi ALEErrorSign					guibg=NONE guifg=#F92672 gui=bold
 
 
-hi GitGutterAdd					guibg=NONE guifg=#87FF00
-hi GitGutterAddLine				guibg=NONE guifg=#87FF00
-hi GitGutterChange				guibg=NONE guifg=#FD971F
+hi GitGutterAdd					guibg=NONE guifg=#00CCFF
+hi GitGutterAddLine				guibg=NONE guifg=#007DFF
+hi GitGutterChange				guibg=NONE guifg=#F553BF
 hi GitGutterDelete				guibg=NONE guifg=#FF2600
 hi GitGutterChangeDelete		guibg=NONE guifg=#AE81FF
 
 hi ActiveWindow     guibg=#1c1c1c
 hi InactiveWindow   guibg=#303030
 
-exec "hi NERDTreeExecFile guifg=".s:green0
-exec "hi NERDTreeDirSlash guifg=".s:teal0
-exec "hi NERDTreeCWD guifg=".s:red0
+hi NERDTreeExecFile		guifg=#87ff00 gui=bold
+hi NERDTreeDirSlash		guifg=#f02e6e gui=bold
+hi NERDTreeCWD			guibg=NONE guifg=#f02e6e
+hi NERDTreeExecFile		guifg=#87ff00 gui=bold
+hi NERDTreeDirSlash		guifg=#f02e6e gui=bold
+hi NERDTreeCWD			guibg=NONE guifg=#f02e6e
 
-hi NERDTreeExecFile		guifg=#87ff00 gui=bold
-hi NERDTreeDirSlash		guifg=#f02e6e gui=bold
-hi NERDTreeCWD			guibg=NONE guifg=#f02e6e
-hi NERDTreeExecFile		guifg=#87ff00 gui=bold
-hi NERDTreeDirSlash		guifg=#f02e6e gui=bold
-hi NERDTreeCWD			guibg=NONE guifg=#f02e6e
 hi pythonFunction       guifg=#87ff00 gui=bold
-hi Function guifg=#63ff51
-hi semshiGlobal guifg=#FF79FF
 hi pythonParam guifg=#FF579C
+hi semshiGlobal guifg=#FF79FF
+hi Function guifg=#63ff51
 hi Title guifg=#00cfff
-hi pythonComment guifg=#505050
+hi pythonComment guifg=#505050 gui=italic
 hi link GalaxyDiagnosticError LspDiagnosticsDefaultError
 hi link GalaxyDiagnsticInfo LspDiagnosticsDefaultInformation
 hi link GalaxyDiagnosticWarn LspDiagnosticsDefaultWarning
 hi GalaxyBufferIcon guifg=#FFFF00 guibg=#303030
 hi GalaxyGitIcon guifg=#F92672 guibg=#303030
-hi GalaxyFileName gui=bold guifg=#bbc2cf guibg=#303030
-hi GalaxyGitBranch gui=bold guifg=#63FF51 guibg=#303030
-hi GalaxyLineInfo  guibg=#23272e
-hi TSField guifg=#FF03CE
-hi TSFloat guifg=#87FF00
+" hi GalaxyFileName gui=bold guifg=#bbc2cf guibg=#303030
+" hi GalaxyGitBranch gui=bold guifg=#63FF51 guibg=#303030
+" hi GalaxyLineInfo  guibg=#23272e
+hi Operator guifg=#FF4081
+" hi pythonImport guifg=#40C057 " guifg=#03a9f4
+hi pythonDocstring      guibg=NONE guifg=#465457 gui=italic
+hi texCmdEnv guifg=#00CCFF
+hi texEnvArgName guifg=#63FF51
+hi Error guifg=#F20052 guibg=NONE gui=bold
+
+" hi TSParameter guifg=#FFAB40 gui=italic
+" hi TSParameter guifg=#FFAB40 gui=italic
+hi TSRepeat guifg=#E040FB gui=bold
+hi TSMethod guifg=#63FF51 gui=bold
+hi TSConstant guifg=#5BA8FF  " #00CBCC
+hi TSKeywordSelf guifg=#465457
+hi TSParameter guifg=#00CBCC
+hi TSField guifg=#CC78FA gui=bold
+hi TSConstructor guifg=#007DFF gui=bold
+hi TSField guifg=#FF79FF
+hi TSFloat guifg=#FD971f
+hi TSType guifg=#FF4081
 hi TSInclude guifg=#AE81FF
 hi TSConstant guifg=#15AABF gui=bold
-hi Operator guifg=#FF4081
-hi pythonImport guifg=#40C057 " guifg=#03a9f4
+hi TSOperator guifg=#d3ff00
+hi TSKeywordReturn guifg=#F92672 gui=bold,italic
+hi TSPunctBracket guifg=#8F9BFF gui=bold
+hi TSKeywordFunction guifg=#B1FF85 gui=bold
+hi TSConditional guifg=#F20052 gui=bold
+hi TSString guifg=#FFFF00
+" hi TSKeywordReturn guifg=#F20052 gui=bold
+" hi TSKeywordFunction guifg=#F92672 gui=bold
+"
+hi pythonBuiltinObj guibg=NONE guifg=#d3ff00 gui=bold
+hi pythonBoolean guibg=NONE guifg=#66D9EF gui=bold
+hi link pythonImport        PreProc
+hi link pythonFunction      Structure
+hi link pythonExceptions    PreProc
+hi link pythonBracketsi     PreProc
+hi link pythonDef           Operator
+hi link pythonSpecial       Boolean
+hi link pythonDecorator     Type
+hi link pythonAs            PreProc
+hi link pythonConstant      Constant
+hi link pythonFString       String
+hi link pythonRawFString    String
+hi pythonMagic      guibg=NONE guifg=#8e44ad gui=NONE
+hi pythonRepeat     guibg=NONE guifg=#d3ff00 gui=NONE
+hi pythonComment              guibg=NONE guifg=#494949 gui=italic
+hi pythonWordOperator   guibg=NONE guifg=#d3ff00 gui=NONE
+hi pythonOperator   guibg=NONE guifg=#F92672 gui=bold
+hi pythonDocstring  guibg=NONE guifg=#606060 gui=NONE,italic
+hi pythonConstant   guibg=NONE guifg=#FF9944 gui=bold
+hi pythonNone       guibg=NONE guifg=#d3ff00 gui=bold
+hi pythonExtraOperatori guibg=NONE guifg=#87ff00 gui=bold
+hi pythonExtraPseudoOperator	guibg=NONE guifg=#87ff00 gui=bold
+hi pythonParameters			guibg=NONE guifg=#656565 gui=bold
+hi pythonClassParameters		guibg=NONE guifg=#87ff00 gui=bold,underline
+hi pythonArg					guibg=NONE guifg=#87ff00 gui=bold
+hi pythonLibraries			guibg=NONE guifg=#FF79FF gui=NONE
+hi pythonVars				    guibg=NONE guifg=#fd971f gui=NONE
+hi pythonParam				guibg=NONE guifg=#87ff00 gui=bold
+hi pythonClassVars			guibg=NONE guifg=#f553bf gui=bold
+hi pythonNote					guibg=NONE guifg=#d3ff00 gui=bold,italic
+hi pythonArgs					guibg=NONE guifg=#007Dff gui=NONE
+hi pythonKwargs				guibg=NONE guifg=#fd971f gui=bold,italic
+hi pythonReturns				guibg=NONE guifg=#FFFFFF gui=bold,italic
+hi pythonBrackets				guibg=NONE guifg=#f92672 gui=bold
+hi pythonBracket              guibg=NONE guifg=#03CEFF gui=bold
+hi pythonDottedName           guibg=NONE guifg=#EE4EB8 gui=bold
+hi pythonFunction             guibg=NONE guifg=#87ff00 gui=bold
+hi pythonMethod               guibg=NONE guifg=#00ebdb gui=bold
+
+hi link pythonfString String
+hi link pythonfDocstring String
+hi link pythonStringModifier PreProc
+
+" hi GitGutterAddLine				guibg=#NONE guifg=NONE
+" hi pythonTripleQuotes      guibg=NONE guifg=#465457 gui=NONE
+" hi pythonStatement		guibg=NONE guifg=#87ff00 gui=bold
+" hi link pythonDocstring      SpecialComment
+" hi pythonBytes      guibg=NONE guifg=#465457 gui=bold
+" hi pythonString      guibg=NONE guifg=#465457 gui=bold
+" hi link pythonDocstring        Comment
+" hi GitBranchSeparator cleared
+" hi pythonTSVariable guifg=#00CCFF
+" hi link Title            semshiGlobal
+" syntax match pythonMethod /\v[[:alpha:]_.]+\ze(\s?\()/
+
+" LspDiagnosticsDefaultHint xxx guifg=#63FF51
+" LspDiagnosticsDefaultError xxx guifg=#F20052
+
 
 
 " \ hi pythonRainbowParentheses		guibg=NONE guifg=#FD971F gui=bold |
@@ -475,20 +509,13 @@ hi pythonImport guifg=#40C057 " guifg=#03a9f4
 " #009688 #4caf50 #8bc34a #cddc39 #ffeb3b #ffc107 #ff9800 #ff5722
 " #795548 #9e9e9e #607d8b
 "
-" hi GitGutterAddLine				guibg=#NONE guifg=NONE
 
 " #808080
 " #1c2022 #1c1c1c #171717 #303030 #292929 #455354 #465457 #71715E #7E8E91 #bcbcbc #f8f8f8 #ffffff
 " #ef5939 #FF4050 #FF2600 #FF0000 #F03E4D #F92672 #fd971f #ffff00 #eeff00 #d3ff00 #87ff00 #26C99E
 " #5af7b0 #70f0f0 #66D9EF #007dff #526fff #7070F0 #AE81FF #CC78FA #F553BF
 
-" hi pythonTripleQuotes      guibg=NONE guifg=#465457 gui=NONE
-" hi pythonStatement		guibg=NONE guifg=#87ff00 gui=bold
-" hi link pythonDocstring      SpecialComment
-" hi pythonDocstring      guibg=NONE guifg=#465457
-" hi pythonBytes      guibg=NONE guifg=#465457 gui=bold
-" hi pythonString      guibg=NONE guifg=#465457 gui=bold
-" hi link pythonDocstring        Comment
+
 " #EF5939 #FF2600 #F92672 #EE4EB8 #AE81FF  #007DFF #66D9EF #70F0F0
 " #FD971F #87ff00 #DEFF00 #EEFF00 #FFFF00
 " #1c2022 #CFCFCF #F8f8f0 #455354  #808080 #465457 #707070
@@ -587,29 +614,10 @@ set background=dark
 " Clean up "
 """"""""""""
 
+ " #00CBCC
 """"""""""""
 " Clean up "
 """"""""""""
-" hi GitBranchSeparator cleared
- " #00CBCC
-" hi pythonTSVariable guifg=#00CCFF
 
-" LspDiagnosticsDefaultHint xxx guifg=#63FF51
-" LspDiagnosticsDefaultError xxx guifg=#F20052
-
-
-" hi link Title            semshiGlobal
-" syntax match pythonMethod /\v[[:alpha:]_.]+\ze(\s?\()/
 
 unlet s:shade0 s:shade1 s:shade2 s:shade3 s:shade4 s:shade5 s:shade6 s:shade7 s:red0 s:orange0 s:yellow0 s:green0 s:teal0 s:blue0 s:magenta0 s:pink0 s:red1 s:orange1 s:yellow1 s:green1 s:teal1 s:blue1 s:magenta1 s:pink1
-hi texCmdEnv guifg=#00CCFF
-hi texEnvArgName guifg=#63FF51
-hi TSConstant guifg=#FFAB40
-hi TSParameter guifg=#FFAB40 gui=italic
-hi TSParameter guifg=#FFAB40 gui=italic
-hi TSRepeat guifg=#E040FB gui=bold
-hi TSMethod guifg=#63FF51 gui=bold
-hi TSKeywordReturn guifg=#F20052 gui=bold
-hi TSKeywordFunction guifg=#F92672 gui=bold
-hi TSParameter guifg=#FD971F gui=italic
-hi TSField guifg=#CC78FA gui=bold
