@@ -279,7 +279,7 @@ M.config = {
     -- 2 : Concealed text is completely hidden unless it has a custom replacement
     --     character defined
     -- 3 : Concealed text is completely hidden
-    conceallevel = 1,
+    conceallevel = 0,
 
     -- Logging level
     -- Set Doom logging level
@@ -368,10 +368,11 @@ M.config = {
       lua = {},
       markdown = {},
       nix = {},
-      python = {},
+      python = {'pylint', 'pycodestyle'},
       ruby = {},
-      sh = {},
+      sh = {'shellcheck'},
       typescript = {},
+      tex = {'chktex'},
     },
 
     -- Set your dashboard custom colors below
