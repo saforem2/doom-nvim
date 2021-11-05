@@ -410,6 +410,9 @@ M.config = {
 			['minimap_auto_start'] = false,
 			['minimap_auto_start_win_enter'] = 0,
 			['modelineexpr'] = true,
+			['tex_flavor'] = 'latex',
+			['vimtex_quickfix_mode'] = 0.4,
+			['tex_conceal'] = 'abdmg'
 		},
 		-- Set custom autocommands
     -- @default = {}
@@ -476,6 +479,7 @@ M.config = {
 			["smartcase"] = true,
 			["ignorecase"] = true,
 			["smartindent"] = true,
+			['conceallevel'] = 1,
 		},
 	},
 }

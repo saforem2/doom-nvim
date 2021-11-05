@@ -21,42 +21,6 @@ M.plugins = {
   { 'wakatime/vim-wakatime' },
   { 'ap/vim-css-color' },
   { 'mbbill/undotree' },
-  {
-    'jakewvincent/texmagic.nvim',
-    config = function()
-      require('texmagic').setup({
-        engines = {
-          pdflatex = {
-            -- This has the same name as a default engine but would be preferred
-            -- over the same-name default if defined
-            executable = "latexmk",
-            args = {
-              "-pdflatex",
-              "-interaction=nonstopmode",
-              "-synctex=1",
-              "-outdir=.build",
-              "-pv",
-              "%f"
-            },
-            isContinuous = true
-          },
-          lualatex = {
-            -- This is *not* one of the defaults, but it can be called via
-            -- magic comment if defined here
-            executable = "latexmk",
-            args = {
-              "-pdflua",
-              "-interaction=nonstopmode",
-              "-synctex=1",
-              "-pv",
-              "%f"
-            },
-            isContinuous = true
-          }
-        }
-      })
-    end,
-  },
   { 'ellisonleao/glow.nvim' },
   {
     'folke/lsp-colors.nvim',
