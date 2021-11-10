@@ -159,6 +159,12 @@ M.config = {
     expand_tabs = true,
 
     -- Set numbering
+    -- false : Disable number lines
+    -- true  : Enable  number lines
+    -- @default = true
+    enable_numbering = true,
+
+    -- Set numbering style
     -- false : Shows absolute number lines
     -- true  : Shows relative number lines
     -- @default = true
@@ -225,6 +231,10 @@ M.config = {
       -- Completion and snippets keybindings
       completion = true,
     },
+
+    -- sequences used for escaping insert mode
+    -- @default = { 'jk', 'kj' }
+    escape_sequences = { "jk", "kj" },
 
     -- Disable or enable Doom autocommands, this can break some configuration options (they will stop working)
     -- e.g. preserve_edit_pos or autosave
