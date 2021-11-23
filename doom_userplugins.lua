@@ -37,9 +37,9 @@ M.plugins = {
     'glepnir/lspsaga.nvim',
     requires = { 'neovim/nvim-lspconfig' },
   },
-  { 'wfxr/code-minimap' },
-  { 'AndrewRadev/splitjoin.vim' },
-  { 'sainnhe/sonokai' },
+  -- { 'wfxr/code-minimap' },
+  -- { 'AndrewRadev/splitjoin.vim' },
+  -- { 'sainnhe/sonokai' },
   {
     "nvim-treesitter/playground",
     cmd = "TSHighlightCapturesUnderCursor",
@@ -88,6 +88,17 @@ M.plugins = {
 	},
 	{ "patstockwell/vim-monokai-tasty" },
 	{ 'vim-python/python-syntax' },
+	{ 'Vimjas/vim-python-pep8-indent' },
+	{ "mrjones2014/dash.nvim", run = "make install" },
+	--[[ {
+		"mrjones2014/dash.nvim",
+		run = "make install",
+		-- config = function()
+			-- require('dash.nvim').setup({
+				-- search_engine = 'google',
+			-- })
+		-- end
+	} ]]
 }
 
 return M

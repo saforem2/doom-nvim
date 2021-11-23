@@ -51,6 +51,7 @@ return function()
     table.insert(modules.langs, "http")
   end
 
+  local incremental_selection = require("nvim-treesitter.incremental_selection")
   require("nvim-treesitter.configs").setup({
     ensure_installed = get_ts_parsers(modules.langs),
     highlight = {
@@ -73,7 +74,7 @@ return function()
     autopairs = {
       enable = is_plugin_disabled("autopairs") and false or true,
     },
-    indent = { enable = true },
+    indent = { enable = false },
     playground = {
       enable = true
     },

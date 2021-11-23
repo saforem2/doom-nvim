@@ -30,7 +30,7 @@ M.modules = {
   doom = {
     -- "compiler",        -- Compile (and run) your code with just pressing three keys!
     "contrib",         -- Special plugins intended for Doom Nvim contributors (lua docs, etc)
-    "neorg",              -- Life Organization Tool, used by Doom Nvim user manual
+    -- "neorg",              -- Life Organization Tool, used by Doom Nvim user manual
     "runner",          -- Open a REPL for the current language or run the current file
   },
   editor = {
@@ -61,18 +61,16 @@ M.modules = {
     "html +lsp",            -- HTML support
     "javascript",      -- JavaScript support
     "typescript",      -- TypeScript support
-
     "bash +lsp",            -- The terminal gods language
     "elixir",          -- Build scalable and maintainable software
     "lua +lsp",                -- Support for our gods language
     "python +lsp",     -- Python support + lsp
     "ruby",            -- Look ma, I love the gems!
-
     "c +lsp",               -- Core dumped: segmentation fault
     "cpp +lsp",             -- C++ support
-    "go",              -- Hello, gopher
+    "go +lsp",              -- Hello, gopher
     -- "haskell",         -- Because Functional programming is fun, isn't it?
-    "java",            -- Java support
+    "java +lsp",            -- Java support
     "rust +lsp",       -- Let's get rusty!
     -- "scala",           -- Java, but good
     "comment",         -- Better annotations and comments

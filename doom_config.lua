@@ -174,7 +174,7 @@ M.config = {
     -- false : Manually set win width
     -- true  : Active window auto sets width
     -- @default = false, @default win_width_nr = 85
-    win_width = true,
+    win_width = false,
     win_width_nr = 85,
 
     -- Enable Highlight on yank
@@ -215,7 +215,7 @@ M.config = {
     -- Show the editing file path in your status line
     -- false : show only file name on status line
     -- true  : show file name and the updir in status line
-    statusline_show_file_path = true,
+    statusline_show_file_path = false,
 
     -- Set the keybindings modules that you want to use
     -- false : disables keybindings module
@@ -234,7 +234,7 @@ M.config = {
 
     -- sequences used for escaping insert mode
     -- @default = { 'jk', 'kj' }
-    escape_sequences = { "jk", "kj" },
+    -- escape_sequences = { "jk", "kj" },
 
     -- Disable or enable Doom autocommands, this can break some configuration options (they will stop working)
     -- e.g. preserve_edit_pos or autosave
@@ -269,7 +269,7 @@ M.config = {
     -- 0 = no transparency
     -- 100 = fully transparent
     -- @default = 25
-    complete_transparency = 1,
+    complete_transparency = 100,
 
     -- Sidebar sizing
     -- Specifies the default width of Tree Explorer and Tagbar
@@ -394,7 +394,7 @@ M.config = {
     dashboard_custom_colors = {
       header_color = "#1c1c1c",
       center_color = "#00CCFF",
-      shortcut_color = "#B2FF59",
+      shortcut_color = "#f92672",
       footer_color = "#586268",
     },
 
@@ -492,7 +492,8 @@ M.config = {
 			["foldexpr"] = "nvim_treesitter#foldexpr()",
 			["smartcase"] = true,
 			["ignorecase"] = true,
-			["smartindent"] = true,
+			-- ["smartindent"] = true,
+			["autoindent"] = true,
 			['conceallevel'] = 1,
 		},
 	},
