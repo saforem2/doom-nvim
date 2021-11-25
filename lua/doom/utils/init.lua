@@ -11,11 +11,11 @@ local system = require("doom.core.system")
 
 -------------------- HELPERS --------------------
 --- Doom Nvim version
-utils.doom_version = "3.2.0-beta2"
+utils.doom_version = "3.2.0"
 
 --- For autocommands, extracted from
 --- https://github.com/norcalli/nvim_utils
----
+--- @param definitions table<string, table<number, string>>
 utils.create_augroups = function(definitions)
   for group_name, definition in pairs(definitions) do
     vim.api.nvim_command("augroup " .. group_name)
@@ -35,6 +35,9 @@ utils.is_empty = function(str)
   return str == "" or str == nil
 end
 
+--- Escapes a string
+--- @param str string String to escape
+--- @return string
 utils.escape_str = function(str)
   local escape_patterns = {
     "%^",
@@ -129,6 +132,15 @@ utils.check_plugin = function(plugin_name, path)
   return vim.fn.isdirectory(
     vim.fn.stdpath("data") .. "/site/pack/packer/" .. path .. "/" .. plugin_name
   ) == 1
+end
+
+--- Rounds a number, optionally to the nearest decimal place
+--- @param num number - Value to round
+--- @param decimalplace number|nil - Number of decimal places
+--- @return number
+utils.round = function(num, decimalplace)
+  local mult = 10 ^ (decimalplace or 0)
+  return math.floor(num * mult + 0.5) / mult
 end
 
 --- Searches for a number of executables in the user's path

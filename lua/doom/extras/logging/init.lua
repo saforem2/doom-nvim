@@ -10,6 +10,7 @@
 -----------------------------------------------------------
 
 local system = require("doom.core.system")
+local round = require("doom.utils").round
 -- logging defaults to "info" level
 local logging_level = "info"
 
@@ -55,8 +56,8 @@ local default_config = {
     { name = "fatal", hl = "ErrorMsg" },
   },
 
-  -- Can limit the number of decimals displayed for floats
-  float_precision = 0.01,
+  -- Can limit the number of decimals places for floats
+  decimal_places = 2,
 }
 
 -- {{{ NO NEED TO CHANGE
@@ -64,6 +65,9 @@ local log = {}
 
 local unpack = unpack or table.unpack
 
+--- Sets up self
+--- @param config table
+--- @param standalone boolean
 log.new = function(config, standalone)
   config = vim.tbl_deep_extend("force", default_config, config)
 
@@ -81,19 +85,14 @@ log.new = function(config, standalone)
     levels[v.name] = i
   end
 
-  local round = function(x, increment)
-    increment = increment or 1
-    x = x / increment
-    return (x > 0 and math.floor(x + 0.5) or math.ceil(x - 0.5)) * increment
-  end
-
+  -- Concatenates tables into a string, handling numbers and dumping tables
   local make_string = function(...)
     local t = {}
     for i = 1, select("#", ...) do
       local x = select(i, ...)
 
-      if type(x) == "number" and config.float_precision then
-        x = tostring(round(x, config.float_precision))
+      if type(x) == "number" and config.decimal_places then
+        x = tostring(round(x, config.decimal_places))
       elseif type(x) == "table" then
         x = vim.inspect(x)
       else

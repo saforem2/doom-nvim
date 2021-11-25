@@ -64,7 +64,7 @@ packer.startup(function(use)
   use({
     "nvim-treesitter/nvim-treesitter",
     commit = vim.fn.has("nvim-0.6.0") == 1 and pin_commit(
-      "a47df48e7d4232fd771f2537a4fb43f582c026c9"
+      "afed686e6a8fc1035475d8c56c1b5ff252c346e5"
     ) or pin_commit("47cfda2c6711077625c90902d7722238a8294982"),
     opt = true,
     run = ":TSUpdate",
@@ -73,12 +73,12 @@ packer.startup(function(use)
   })
   use({
     "JoosepAlviste/nvim-ts-context-commentstring",
-    commit = pin_commit("ce74852c36008b11dda451bfe6c2ed71c535152b"),
+    commit = pin_commit("9f5e422e1030e7073e593ad32c5354aa0bcb0176"),
     after = "nvim-treesitter",
   })
   use({
     "nvim-treesitter/nvim-tree-docs",
-    commit = pin_commit("864c2f5023fa7399aa084fd81c0e2f8dedfd32e3"),
+    commit = pin_commit("15135bd18c8f0c4d67dd1b36d3b2cd64579aab6f"),
     after = "nvim-treesitter",
   })
   use({
@@ -95,7 +95,7 @@ packer.startup(function(use)
   -- Aniseed, required by some treesitter modules
   use({
     "Olical/aniseed",
-    commit = pin_commit("4bb3a4c1a1e329ebefa7ff022f7b3947770f7f26"),
+    commit = pin_commit("9c8f2cd17d454a38b11cedd323579b579ee27f9c"),
     module_pattern = "aniseed",
   })
 
@@ -103,7 +103,7 @@ packer.startup(function(use)
   local disabled_neorg = is_plugin_disabled("neorg")
   use({
     "nvim-neorg/neorg",
-    commit =  --[[NO AUTO UPDATE]]pin_commit("17602389089d56907bbfc026c3dba19f9d24c2dd"),
+    commit =  --[[NO AUTO UPDATE]]pin_commit("3b4d5bcd0f85b15d99183c7d29e0eb1c5f88350b"),
     branch = "unstable",
     config = require("doom.modules.config.doom-neorg"),
     disable = disabled_neorg,
@@ -143,7 +143,7 @@ packer.startup(function(use)
   -- Development icons
   use({
     "kyazdani42/nvim-web-devicons",
-    commit = pin_commit("f936ff3e1f9d58ec0caf0bd398e9675b54fe292e"),
+    commit = pin_commit("8df4988ecf8599fc1f8f387bbf2eae790e4c5ffb"),
     module = "nvim-web-devicons",
   })
 
@@ -190,7 +190,7 @@ packer.startup(function(use)
   local disabled_tabline = is_plugin_disabled("tabline")
   use({
     "akinsho/bufferline.nvim",
-    commit = pin_commit("782fab8a2352e872dc991c42f806dae18e848b2d"),
+    commit = pin_commit("463637a3ac86dcaacbcd47aa608f53aaad749696"),
     config = require("doom.modules.config.doom-bufferline"),
     disable = disabled_tabline,
     event = "BufWinEnter",
@@ -201,7 +201,7 @@ packer.startup(function(use)
   local disabled_terminal = is_plugin_disabled("terminal")
   use({
     "akinsho/toggleterm.nvim",
-    commit = pin_commit("0b6d65d8b45e261bc17176e86abb3f631c88fc1b"),
+    commit = pin_commit("ff168c8218b963cc7fc9d80b684d840488839bb5"),
     config = require("doom.modules.config.doom-toggleterm"),
     disable = disabled_terminal,
     module = { "toggleterm", "toggleterm.terminal" },
@@ -228,7 +228,7 @@ packer.startup(function(use)
   local disabled_minimap = is_plugin_disabled("minimap")
   use({
     "wfxr/minimap.vim",
-    commit = pin_commit("5c54258d34b8ae4be70a8fbc09b400eb7be0bee8"),
+    commit = pin_commit("35c0dd759938459d866aba1bdf0f1fc0b670ed61"),
     disable = disabled_minimap,
     cmd = {
       "Minimap",
@@ -272,7 +272,7 @@ packer.startup(function(use)
   local disabled_illuminate = is_plugin_disabled("illuminated")
   use({
     "RRethy/vim-illuminate",
-    commit = pin_commit("084b012ce5bc1bf302b69eb73562146afe0a9756"),
+    commit = pin_commit("2beae0581caa66cf8c09fad7c7c557f92d49d2bd"),
     setup = function()
       vim.g.Illuminate_ftblacklist = {
         "help",
@@ -299,14 +299,14 @@ packer.startup(function(use)
   })
   use({
     "nvim-lua/popup.nvim",
-    commit = pin_commit("f91d80973f80025d4ed00380f2e06c669dfda49d"),
+    commit = pin_commit("b7404d35d5d3548a82149238289fa71f7f6de4ac"),
     module = "popup",
   })
 
   local disabled_telescope = is_plugin_disabled("telescope")
   use({
     "nvim-telescope/telescope.nvim",
-    commit = pin_commit("729492406ec3b545c4ecf2beadf7bd30c81e70e4"),
+    commit = pin_commit("1c57cc6140644695f0d9bd71b63de45feeca6ae7"),
     cmd = "Telescope",
     module = "telescope",
     requires = {
@@ -345,7 +345,7 @@ packer.startup(function(use)
   local disabled_gitsigns = is_plugin_disabled("gitsigns")
   use({
     "lewis6991/gitsigns.nvim",
-    commit = pin_commit("bfc4543262442a336e257d2d9fac16aa1de532a9"),
+    commit = pin_commit("95845ef39ce0a98f68cdfdcf7dd586c5e965acc7"),
     config = require("doom.modules.config.doom-gitsigns"),
     disable = disabled_gitsigns,
     requires = "plenary.nvim",
@@ -356,7 +356,7 @@ packer.startup(function(use)
   local disabled_neogit = is_plugin_disabled("neogit")
   use({
     "TimUntersberger/neogit",
-    commit = pin_commit("807e4a795dc6c2383b281fc27bd1bc6c197d98cd"),
+    commit = pin_commit("ab772d21b108127ad6c703f7457c279f5817f379"),
     config = function()
       require("neogit").setup({})
     end,
@@ -369,7 +369,7 @@ packer.startup(function(use)
   local disabled_lazygit = is_plugin_disabled("lazygit")
   use({
     "kdheepak/lazygit.nvim",
-    commit = pin_commit("bcd111df61abe90b133cb08ea577c02af44ca5ce"),
+    commit = pin_commit("497ef5578e15f6c79deef1cad71adedd1c80abd4"),
     requires = "plenary.nvim",
     disable = disabled_lazygit,
     cmd = { "LazyGit", "LazyGitConfig" },
@@ -382,7 +382,7 @@ packer.startup(function(use)
   -- Built-in LSP Config
   use({
     "neovim/nvim-lspconfig",
-    commit = pin_commit("4191b1fca3bafe759ae5606d19e0f0e54e9fc83b"),
+    commit = pin_commit("1cb8583d186d28f2959eac5d74a74dc745fae099"),
     config = require("doom.modules.config.doom-lspconfig"),
     disable = disabled_lsp,
   })
@@ -398,7 +398,7 @@ packer.startup(function(use)
   -- can be disabled to use your own completion plugin
   use({
     "hrsh7th/nvim-cmp",
-    commit = pin_commit("753f5b7c92da0302efffc5ce6780dffe0602bdf3"),
+    commit = pin_commit("2e4270d02843d15510b3549354e238788ca07ca5"),
     wants = { "LuaSnip" },
     requires = {
       {
@@ -436,13 +436,13 @@ packer.startup(function(use)
   })
   use({
     "hrsh7th/cmp-path",
-    commit = pin_commit("98ded32b9c4d95aa95af70b9979b767f39073f0e"),
+    commit = pin_commit("81518cf6ae29f5f0c79cd47770ae90ff5225ee13"),
     disable = disabled_lsp,
     after = "nvim-cmp",
   })
   use({
     "hrsh7th/cmp-buffer",
-    commit = pin_commit("2d85e76c725a389b72067f86fc3c65f3868b9a59"),
+    commit = pin_commit("a706dc69c49110038fe570e5c9c33d6d4f67015b"),
     disable = disabled_lsp,
     after = "nvim-cmp",
   })
@@ -456,7 +456,7 @@ packer.startup(function(use)
   -- Manage Language serverss with ease.
   use({
     "williamboman/nvim-lsp-installer",
-    commit = pin_commit("35d4b08d60c17b79f8e16e9e66f0d7693c99d612"),
+    commit = pin_commit("bcce5db53b966e2dbd97fc8d1bbfa7db4a405f13"),
     config = require("doom.modules.config.doom-lsp-installer"),
     disable = disabled_lsp,
   })
@@ -464,7 +464,7 @@ packer.startup(function(use)
   -- Show function signature when you type
   use({
     "ray-x/lsp_signature.nvim",
-    commit = pin_commit("600111e6249bcc948e2b811ef09adf4ea84ebfc1"),
+    commit = pin_commit("c7b2b2e14b597c077804ae201f1ec9a7dac76ad0"),
     config = require("doom.modules.config.doom-lsp-signature"),
     after = "nvim-lspconfig",
     event = "InsertEnter",
@@ -484,7 +484,7 @@ packer.startup(function(use)
   local disabled_dap = is_plugin_disabled("dap")
   use({
     "mfussenegger/nvim-dap",
-    commit = pin_commit("1a87456d280e8e308df7983650a5ea2b5a6bfb63"),
+    commit = pin_commit("4e8bb7ca12dc8ca6f7a500cbb4ecea185665c7f1"),
     disable = disabled_dap,
     event = "BufWinEnter",
   })
@@ -533,7 +533,7 @@ packer.startup(function(use)
   local disabled_linter = is_plugin_disabled("linter")
   use({
     "mfussenegger/nvim-lint",
-    commit = pin_commit("0116b78963fd24643faa34fa1bc02f8d425a73ef"),
+    commit = pin_commit("c3c8a247fda421b0db1f2cbf50ab4340ba0ffc61"),
     config = require("doom.modules.config.doom-lint"),
     disable = disabled_linter,
     module = "lint",
@@ -543,7 +543,7 @@ packer.startup(function(use)
   local disabled_indent_lines = is_plugin_disabled("indentlines")
   use({
     "lukas-reineke/indent-blankline.nvim",
-    commit = pin_commit("9f663d31d4ee0672f24cd5b26ca3863665048a25"),
+    commit = pin_commit("caf7f61e94525bbd97e32f118efd6c0722430616"),
     config = require("doom.modules.config.doom-blankline"),
     disable = disabled_indent_lines,
     event = "ColorScheme",
@@ -599,7 +599,7 @@ packer.startup(function(use)
   local disabled_restclient = is_plugin_disabled("restclient")
   use({
     "NTBBloodbath/rest.nvim",
-    commit = pin_commit("759bf5b1a8cd15ecf6ecf2407a826d4be6ec3414"),
+    commit = pin_commit("e1c34175ee0b2293e8b9c06c11f2fc63f4262918"),
     requires = "plenary.nvim",
     config = function()
       require("rest-nvim").setup()
@@ -625,7 +625,7 @@ packer.startup(function(use)
   local disabled_firenvim = is_plugin_disabled("firenvim")
   use({
     "glacambre/firenvim",
-    commit = pin_commit("0ff2821cc0a561ac79596f358b26674c87483efa"),
+    commit = pin_commit("7320a805f51b4cf03de4e3b30088838d3f84adda"),
     disable = disabled_firenvim,
     run = function()
       vim.fn["firenvim#install"](0)

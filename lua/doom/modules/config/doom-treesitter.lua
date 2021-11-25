@@ -4,6 +4,9 @@ return function()
   local is_plugin_disabled = require("doom.utils").is_plugin_disabled
   local incremental_selection = require("nvim-treesitter.incremental_selection")
 
+  --- Returns treesitter parsers from doom_modules.langs
+  --- @param languages table<number, string>
+  --- @return table<number, string>
   local function get_ts_parsers(languages)
     local langs = {}
 
@@ -39,14 +42,6 @@ return function()
     table.insert(modules.langs, "norg")
   end
 
-  -- Set up treesitter for HTTP
-  parser_configs.http = {
-    install_info = {
-      url = "https://github.com/NTBBloodbath/tree-sitter-http",
-      files = { "src/parser.c" },
-      branch = "main",
-    },
-  }
   if packer_plugins and packer_plugins["rest.nvim"] then
     table.insert(modules.langs, "http")
   end
