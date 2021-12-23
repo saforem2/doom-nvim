@@ -11,6 +11,40 @@
 --     requires = { 'nvim-lua/telescope.nvim' },
 --   },
 -- }
+--
+--[[ -- Example
+-- use {
+  'myusername/example',        -- The plugin location string
+  -- The following keys are all optional
+  disable = boolean,           -- Mark a plugin as inactive
+  as = string,                 -- Specifies an alias under which to install the plugin
+  installer = function,        -- Specifies custom installer. See "custom installers" below.
+  updater = function,          -- Specifies custom updater. See "custom installers" below.
+  after = string or list,      -- Specifies plugins to load before this plugin. See "sequencing" below
+  rtp = string,                -- Specifies a subdirectory of the plugin to add to runtimepath.
+  opt = boolean,               -- Manually marks a plugin as optional.
+  branch = string,             -- Specifies a git branch to use
+  tag = string,                -- Specifies a git tag to use
+  commit = string,             -- Specifies a git commit to use
+  lock = boolean,              -- Skip updating this plugin in updates/syncs. Still cleans.
+  run = string, function, or table, -- Post-update/install hook. See "update/install hooks".
+  requires = string or list,   -- Specifies plugin dependencies. See "dependencies".
+  rocks = string or list,      -- Specifies Luarocks dependencies for the plugin
+  config = string or function, -- Specifies code to run after this plugin is loaded.
+  -- The setup key implies opt = true
+  setup = string or function,  -- Specifies code to run before this plugin is loaded.
+  -- The following keys all imply lazy-loading and imply opt = true
+  cmd = string or list,        -- Specifies commands which load this plugin. Can be an autocmd pattern.
+  ft = string or list,         -- Specifies filetypes which load this plugin.
+  keys = string or list,       -- Specifies maps which load this plugin. See "Keybindings".
+  event = string or list,      -- Specifies autocommand events which load this plugin.
+  fn = string or list          -- Specifies functions which load this plugin.
+  cond = string, function, or list of strings/functions,   -- Specifies a conditional test to load this plugin
+  module = string or list      -- Specifies Lua module names for require. When requiring a string which starts
+                               -- with one of these module names, the plugin will be loaded.
+  module_pattern = string/list -- Specifies Lua pattern of Lua module names for require. When
+  requiring a string which matches one of these patterns, the plugin will be loaded.
+} ]]
 
 local M = {}
 
@@ -37,68 +71,71 @@ M.plugins = {
     'glepnir/lspsaga.nvim',
     requires = { 'neovim/nvim-lspconfig' },
   },
-  -- { 'wfxr/code-minimap' },
-  -- { 'AndrewRadev/splitjoin.vim' },
-  -- { 'sainnhe/sonokai' },
   {
     "nvim-treesitter/playground",
     cmd = "TSHighlightCapturesUnderCursor",
   },
-	{ 'kosayoda/nvim-lightbulb' },
-	{ 'machakann/vim-sandwich' },
-	{ 'lervag/vimtex' },
-	{ 'rktjmp/lush.nvim' },
-	{
-		"ahmedkhalf/project.nvim",
-		config = function()
+  { 'kosayoda/nvim-lightbulb' },
+  { 'machakann/vim-sandwich' },
+  { 'lervag/vimtex' },
+  { 'rktjmp/lush.nvim' },
+  {
+  	"ahmedkhalf/project.nvim",
+  	config = function()
   		require("project_nvim").setup({
-  			-- Manual mode doesn't automatically change your root directory, so you
-  			-- have the option to manually do so using `:ProjectRoot` command.
   			manual_mode = false,
-  			-- Methods of detecting the root directory. **"lsp"** uses the native neovim
-  			-- lsp, while **"pattern"** uses vim-rooter like glob pattern matching. Here
-  			-- order matters: if one is not detected, the other is used as fallback. You
-  			-- can also delete or rearangne the detection methods.
   			detection_methods = { "lsp", "pattern" },
-
-  			-- All the patterns used to detect root dir, when **"pattern"** is in
-  			-- detection_methods
   			patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
-
-  			-- Table of lsp clients to ignore by name
-  			-- eg: { "efm", ... }
   			ignore_lsp = {},
-
-  			-- Don't calculate root dir on specific directories
-  			-- Ex: { "~/.cargo/*", ... }
   			exclude_dirs = {},
-
-  			-- Show hidden files in telescope
   			show_hidden = false,
-
-  			-- When set to false, you will get a message when project.nvim changes your
-  			-- directory.
   			silent_chdir = false,
-
-  			-- Path where project.nvim will store the project history for use in
-  			-- telescope
   			datapath = vim.fn.stdpath("data"),
   		})
   	end
-	},
-	{ "patstockwell/vim-monokai-tasty" },
-	{ 'vim-python/python-syntax' },
-	{ 'Vimjas/vim-python-pep8-indent' },
-	{ "mrjones2014/dash.nvim", run = "make install" },
-	--[[ {
-		"mrjones2014/dash.nvim",
-		run = "make install",
-		-- config = function()
-			-- require('dash.nvim').setup({
-				-- search_engine = 'google',
-			-- })
-		-- end
-	} ]]
+  },
+  { "patstockwell/vim-monokai-tasty" },
+  { 'vim-python/python-syntax' },
+  { 'Vimjas/vim-python-pep8-indent' },
+  {
+  	"dccsillag/magma-nvim",
+  	run = ":UpdateRemotePlugins",
+  },
+  {
+  	"rcarriga/nvim-notify",
+  	config = function()
+			require("notify").setup({
+				-- Animation style (see below for details)
+				stages = "fade_in_slide_out",
+				-- Function called when a new window is opened, use for changing win settings/config
+				on_open = nil,
+				-- Function called when a window is closed
+				on_close = nil,
+				-- Render function for notifications. See notify-render()
+				render = "default",
+				-- Default timeout for notifications
+				timeout = 5000,
+				-- For stages that change opacity this is treated as the highlight
+				-- behind the window
+				-- Set this to either a highlight group or an RGB hex value e.g. "#000000"
+				background_colour = "Normal",
+  			-- Minimum width for notification windows
+  			minimum_width = 50,
+  			-- Icons for the different levels
+  			icons = {
+    			ERROR = "",
+    			WARN = "",
+    			INFO = "",
+    			DEBUG = "",
+    			TRACE = "✎",
+  			},
+			})
+		end
+  },
+  {
+  	"numirias/semshi",
+  	run = ":UpdateRemotePlugins",
+  }
 }
 
 return M

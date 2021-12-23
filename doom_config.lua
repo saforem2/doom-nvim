@@ -71,7 +71,7 @@ M.config = {
     -- true  : enable undo files/undo dirs.
     -- @default = false
     -- WARNING: if you change this to false and you have an undo dir already,
-    --          it will gEMOVE the undodir (loss of data might take place)
+    --          it will REMOVE the undodir (loss of data might take place)
     backup = true,
 
     -- Enable Line wrapping
@@ -234,7 +234,7 @@ M.config = {
 
     -- sequences used for escaping insert mode
     -- @default = { 'jk', 'kj' }
-    -- escape_sequences = { "jk", "kj" },
+    escape_sequences = {},
 
     -- Disable or enable Doom autocommands, this can break some configuration options (they will stop working)
     -- e.g. preserve_edit_pos or autosave
@@ -250,7 +250,7 @@ M.config = {
 
     -- Use floating windows for plugins manager (packer) operations
     -- @default = false
-    use_floating_win_packer = true,
+    use_floating_win_packer = false,
 
     -- Default indent size
     -- @default = 4
@@ -305,7 +305,7 @@ M.config = {
     --   · error
     --   · fatal
     -- @default = 'info'
-    logging = "info",
+    logging = "debug",
 
     -- Set the Terminal direction
     -- Available directions:
@@ -324,7 +324,7 @@ M.config = {
 
     -- Default colorscheme
     -- @default = doom-one
-    colorscheme = "molokai",
+    colorscheme = "doom-one",
 
     -- Background color
     -- @default = dark
@@ -426,7 +426,8 @@ M.config = {
 			['modelineexpr'] = true,
 			['tex_flavor'] = 'latex',
 			['vimtex_quickfix_mode'] = 0.4,
-			['tex_conceal'] = 'abdmg'
+			['tex_conceal'] = 'abdmg',
+			['magma_automatically_open_output'] = 'v:true'
 		},
 		-- Set custom autocommands
     -- @default = {}
@@ -454,6 +455,12 @@ M.config = {
         { 'n', 'gr', ':Lspsaga rename<CR>', },
         { 'n', 'S', [[:keeppatterns substitute/\s*\%#\s*/\r/e <bar> normal! ==<CR>]], },
         { 'n', 'L', [[:keeppatterns substitute/\s*\%#\s*/\r/e <bar> normal! ==<CR>]], },
+        { 'n', '<LocalLeader>r', ':MagmaEvaluateOperator<CR>' },
+        { 'n', '<LocalLeader>rr', ':MagmaEvaluateLine<CR>' },
+        { 'x', '<LocalLeader>r', ':<C-u>MagmaEvaluateVisual<CR>' },
+        { 'n', '<LocalLeader>rc', ':MagmaReevaluateCell<CR>' },
+        { 'n', '<LocalLeader>rd', ':MagmaDelete<CR>' },
+        { 'n', '<LocalLeader>ro', ':MagmaShowOutput<CR>' }
       },
 
     -- Set custom commands
@@ -492,7 +499,6 @@ M.config = {
 			["foldexpr"] = "nvim_treesitter#foldexpr()",
 			["smartcase"] = true,
 			["ignorecase"] = true,
-			-- ["smartindent"] = true,
 			["autoindent"] = true,
 			['conceallevel'] = 1,
 		},
