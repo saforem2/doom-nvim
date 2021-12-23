@@ -1,11 +1,11 @@
 return function()
   local utils = require("doom.utils")
   local config = require("doom.core.config").config
-  local colors = require("galaxyline.themes.colors").get_color
   -- local evil_colors = require("doom.modules.config.doom-eviline-palettes").get_color
 
   -- local colors = require("doom.modules.config.doom-eviline-palettes").get_color
   local gl = require("galaxyline")
+  local colors = require("galaxyline.themes.colors").get_color
   local lsp = require("galaxyline.providers.lsp")
   local buffer = require("galaxyline.providers.buffer")
   local condition = require("galaxyline.condition")
@@ -273,7 +273,7 @@ return function()
   gls.right[11] = {
     RainbowRight = {
       provider = function()
-        return " ▊"
+        return ""
       end,
       highlight = { colors("blue"), colors("bg") },
     },
@@ -283,7 +283,7 @@ return function()
   gls.short_line_left[1] = {
     ShortRainbowLeft = {
       provider = function()
-        return "▊ "
+        return " "
       end,
       highlight = { colors("blue"), colors("bg") },
     },
@@ -306,7 +306,7 @@ return function()
   gls.short_line_right[2] = {
     ShortRainbowRight = {
       provider = function()
-        return " ▊"
+        return " "
       end,
       highlight = { colors("blue"), colors("bg") },
     },
