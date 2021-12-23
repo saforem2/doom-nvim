@@ -16,7 +16,7 @@ local load_modules = require("doom.utils.modules").load_modules
 vim.g.loaded_gzip = false
 vim.g.loaded_tarPlugin = false
 vim.g.loaded_zipPlugin = false
-vim.g.loaded_2html_plugin = false
+vim.g.loaded_2html_plugin = true
 vim.g.loaded_remote_plugin = true
 
 ---- Doom Configurations ------------------------
