@@ -250,7 +250,7 @@ M.config = {
 
     -- Use floating windows for plugins manager (packer) operations
     -- @default = false
-    use_floating_win_packer = false,
+    use_floating_win_packer = true,
 
     -- Default indent size
     -- @default = 4
@@ -305,7 +305,7 @@ M.config = {
     --   · error
     --   · fatal
     -- @default = 'info'
-    logging = "debug",
+    logging = "trace",
 
     -- Set the Terminal direction
     -- Available directions:
@@ -324,7 +324,7 @@ M.config = {
 
     -- Default colorscheme
     -- @default = doom-one
-    colorscheme = "doom-one",
+    colorscheme = "molokai",
 
     -- Background color
     -- @default = dark
@@ -377,12 +377,12 @@ M.config = {
       c = {},
       cpp = {},
       css = {},
-      html = {},
+      html = {'tidy'},
       javascript = {},
-      lua = {},
+      lua = {'luacheck'},
       markdown = {},
       nix = {},
-      python = {'pylint', 'pycodestyle'},
+      python = {'pylint', 'pycodestyle', 'mypy'},
       ruby = {},
       sh = {'shellcheck'},
       typescript = {},
@@ -419,7 +419,6 @@ M.config = {
     --
     global_variables = {
 			['pumblend'] = 0,
-			['sonokai_style'] = 'shusia',
 			['minimap_width'] = 8,
 			['minimap_auto_start'] = false,
 			['minimap_auto_start_win_enter'] = 0,
@@ -484,7 +483,37 @@ M.config = {
     --         run_on_start = false,
     --      },
     --   }
-    functions = {},
+    functions = {
+        {
+            set_colors = function()
+                vim.cmd("syntax enable")
+                vim.cmd("colorscheme molokai")
+                vim.cmd("doautocmd ColorScheme")
+            end,
+            run_on_start = true,
+        },
+        {
+            MyCustomHighlights = function()
+                vim.cmd("hi semshiGlobal guifg=#2CC36E")
+                vim.cmd("hi semshiLocal guifg=#ff875f")
+                -- vim.cmd("hi semshiGlobal guifg=#ffaf00")
+                vim.cmd("hi semshiGlobal guifg=#b47cff")
+                vim.cmd("hi semshiImported guifg=#69f0ae cterm=bold gui=bold")
+                vim.cmd("hi semshiParameter guifg=#5fafff")
+                vim.cmd("hi semshiParameterUnused guifg=#87d7ff cterm=underline gui=underline")
+                vim.cmd("hi semshiFree guifg=#ffafd7")
+                vim.cmd("hi semshiBuiltin guifg=#ff5fff")
+                vim.cmd("hi semshiAttribute guifg=#00ffaf")
+                vim.cmd("hi semshiSelf guifg=#b2b2b2")
+                vim.cmd("hi semshiUnresolved guifg=#ffff00 cterm=underline gui=underline")
+                vim.cmd("hi semshiSelected guifg=#ffffff guibg=#d7005f")
+                vim.cmd("hi semshiErrorSign guifg=#ffffff guibg=#d70000")
+                vim.cmd("hi semshiErrorChar guifg=#ffffff guibg=#d70000")
+                vim.cmd("sign define semshiError text=E> texthl=semshiErrorSign")
+            end,
+            run_on_start = true,
+        },
+    }
 
     -- Set custom options
     -- @default = {}

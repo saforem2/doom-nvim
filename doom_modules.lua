@@ -19,7 +19,7 @@ M.modules = {
   ui = {
     "dashboard",          -- Start screen
     "doom-themes",     -- Additional doom emacs' colorschemes
-    "indentlines",     -- Show indent lines
+    -- "indentlines",     -- Show indent lines
     "show_registers",  -- popup that shows register contents
     "statusline",         -- Statusline
     "tabline",            -- Tabline, shows your buffers list at top
@@ -46,7 +46,7 @@ M.modules = {
     "lsp",                -- Language Server Protocols
     "minimap",         -- Code minimap, requires github.com/wfxr/code-minimap
     "ranger",          -- Ranger File Browser, requires ranger file browser
-    "snippets",           -- Code snippets
+    -- "snippets",           -- Code snippets
     "symbols",         -- LSP symbols and tags
     "telescope",          -- Highly extendable fuzzy finder over lists
     "terminal",        -- Terminal for Neovim (NOTE: needed for runner and compiler)
@@ -62,7 +62,7 @@ M.modules = {
     "javascript",      -- JavaScript support
     "typescript",      -- TypeScript support
     "bash +lsp",            -- The terminal gods language
-    "elixir",          -- Build scalable and maintainable software
+    -- "elixir",          -- Build scalable and maintainable software
     "lua +lsp",                -- Support for our gods language
     "python +lsp",     -- Python support + lsp
     "ruby",            -- Look ma, I love the gems!

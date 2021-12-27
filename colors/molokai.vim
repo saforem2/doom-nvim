@@ -351,7 +351,6 @@ hi SpecialKey       guifg=#465457   guibg=NONE
 " hi link Tag                 Special
 
 highlight pythonMethod guibg=NONE guifg=#87ff00 gui=NONE
-highlight semshiAttribute guibg=NONE guifg=#CC78FA gui=bold
 hi clear SignColumn
 hi ALEWarningSign				guibg=NONE guifg=#87ff00 gui=NONE
 hi ALEErrorSign					guibg=NONE guifg=#F92672 gui=bold
@@ -375,7 +374,6 @@ hi NERDTreeCWD			guibg=NONE guifg=#f02e6e
 
 hi pythonFunction       guifg=#87ff00 gui=bold
 hi pythonParam guifg=#FF579C
-hi semshiGlobal guifg=#FF79FF
 hi Function guifg=#63ff51
 hi Title guifg=#00cfff
 hi pythonComment guifg=#505050 gui=italic
@@ -392,7 +390,11 @@ hi Operator guifg=#FF4081
 hi pythonDocstring      guibg=NONE guifg=#465457 gui=italic
 hi texCmdEnv guifg=#00CCFF
 hi texEnvArgName guifg=#63FF51
+
+hi Warning guifg=#FFaf00
+hi TSWarning guifg=#FFaf00
 hi Error guifg=#F20052 guibg=NONE gui=bold
+hi TSError guifg=#FF5252 gui=bold
 
 " hi TSParameter guifg=#FFAB40 gui=italic
 " hi TSParameter guifg=#FFAB40 gui=italic
@@ -401,15 +403,13 @@ hi TSMethod guifg=#63FF51 gui=bold
 hi TSConstant guifg=#5BA8FF  " #00CBCC
 hi TSKeywordSelf guifg=#465457
 hi TSParameter guifg=#00CBCC
-hi TSField guifg=#CC78FA gui=bold
 hi TSConstructor guifg=#007DFF gui=bold
-hi TSField guifg=#FF79FF
 hi TSFloat guifg=#FD971f
 hi TSType guifg=#FF4081
 hi TSInclude guifg=#AE81FF
 hi TSConstant guifg=#15AABF gui=bold
 hi TSOperator guifg=#d3ff00
-hi TSKeywordReturn guifg=#F92672 gui=bold,italic
+hi TSKeywordReturn guifg=#FF5252 gui=bold
 hi TSPunctBracket guifg=#8F9BFF gui=bold
 hi TSKeywordFunction guifg=#B1FF85 gui=bold
 hi TSConditional guifg=#F20052 gui=bold
@@ -417,6 +417,10 @@ hi TSString guifg=#FFFF00
 " hi TSKeywordReturn guifg=#F20052 gui=bold
 " hi TSKeywordFunction guifg=#F92672 gui=bold
 "
+" hi TSField guifg=#CC78FA gui=bold
+" hi TSField guifg=#FF79FF
+hi TSField guifg=#FF03CE
+
 hi pythonBuiltinObj guibg=NONE guifg=#d3ff00 gui=bold
 hi pythonBoolean guibg=NONE guifg=#66D9EF gui=bold
 hi link pythonImport        PreProc
@@ -457,9 +461,17 @@ hi pythonDottedName           guibg=NONE guifg=#EE4EB8 gui=bold
 hi pythonFunction             guibg=NONE guifg=#87ff00 gui=bold
 hi pythonMethod               guibg=NONE guifg=#00ebdb gui=bold
 
-hi link pythonfString String
-hi link pythonfDocstring String
+hi link pythonfString pythonDocstring
+hi link pythonfDocstring pythonDocstring
 hi link pythonStringModifier PreProc
+
+hi TSField guifg=#65D8EE
+" highlight semshiAttribute guibg=NONE guifg=#CC78FA gui=bold
+highlight semshiAttribute guibg=NONE guifg=#007DFF gui=bold
+" hi semshiGlobal guifg=#FF79FF
+hi semshiGlobal guifg=#b47cff
+hi semshiImported guifg=#FF79FF
+hi TSConstructor guifg=#03CEFF
 
 " hi GitGutterAddLine				guibg=#NONE guifg=NONE
 " hi pythonTripleQuotes      guibg=NONE guifg=#465457 gui=NONE
